@@ -41,7 +41,7 @@ export default function Header() {
           href="/study"
           className="flex flex-row gap-0 items-center justify-center"
         >
-          GETTING STARTED
+          HOW IT WORKS
           <Image
             src="/icons/expand_more.svg"
             alt="expanding down"
