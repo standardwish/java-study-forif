@@ -2,7 +2,7 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { assignment1 } from "./code";
-const Assignment = () => {
+const Assignment1 = () => {
   return (
     <div>
       <SyntaxHighlighter language="java" style={materialDark}>
@@ -12,4 +12,4 @@ const Assignment = () => {
   );
 };
 
-export default Assignment;
+export default Assignment1;

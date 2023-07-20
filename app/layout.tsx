@@ -5,8 +5,13 @@ import { NotoSansKR } from "./fonts";
 import Footer from "./components/footer";
 
 export const metadata: Metadata = {
-  title: "FORIF-JAVA",
+  title: "Java In Forif",
   description: "JAVA STUDY IN FORIF",
+  generator: "Next.js",
+  applicationName: "FORIF-IN-JAVA",
+  keywords: ["Java", "Forif", "Computer", "Programming"],
+  authors: [{ name: "Jun Seong", url: "https://github.com/standardwish" }],
+  colorScheme: "light",
 };
 
 export default function RootLayout({

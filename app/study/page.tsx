@@ -37,7 +37,7 @@ export default function Page() {
                   <p className="text-xs">BACK</p>
                 </div>
                 <div className="rounded-full border-2 border-black w-10 h-10 text-center relative flex items-center justify-center">
-                  <p className="text-xs">15</p>
+                  <p className="text-xs font-bold">15</p>
                 </div>
               </div>
             </div>
@@ -57,7 +57,7 @@ export default function Page() {
                   <p className="text-xs">CODE</p>
                 </div>
                 <div className="rounded-full border-2 border-black w-10 h-10 text-center relative flex items-center justify-center">
-                  <p className="text-xs">50</p>
+                  <p className="text-xs font-bold">50</p>
                 </div>
               </div>
             </div>
@@ -77,7 +77,7 @@ export default function Page() {
                   <p className="text-xs">ORG</p>
                 </div>
                 <div className="rounded-full border-2 border-black w-10 h-10 text-center relative flex items-center justify-center">
-                  <p className="text-xs">10</p>
+                  <p className="text-xs font-bold">10</p>
                 </div>
               </div>
             </div>
