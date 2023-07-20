@@ -2,15 +2,7 @@ import ForwardArrow from "./components/icons/arrow_forward";
 export default function Home() {
   return (
     <div>
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/l9AzO1FMgM8"
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        className="absolute right-10 top-40 border-2 border-black rounded-xl animate-fadein"
-      ></iframe>
-      <div className="bg-[url('/images/main-bg-img.png')] bg-cover w-full h-screen bg-center bg-fixed main-bg-img">
+      <div className="bg-[url('/images/main-bg-img.png')] bg-cover w-full h-screen bg-center bg-fixed main-bg-img flex justify-between">
         <div className="ml-8 pt-24 flex flex-col gap-6 w-2/5 break-keep animate-fadein">
           <h1 className="text-6xl">자바 공부를 시작하는 가장 뛰어난 방법</h1>
           <p className="text-base">
@@ -22,6 +14,14 @@ export default function Home() {
             <ForwardArrow />
           </button>
         </div>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/l9AzO1FMgM8"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          className="border-2 border-black rounded-xl animate-fadein mt-24 mr-10"
+        ></iframe>
       </div>
     </div>
   );

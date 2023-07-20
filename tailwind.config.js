@@ -16,11 +16,16 @@ module.exports = {
           "0%, 100%": { transform: "rotate(-3deg)" },
           "50%": { transform: "rotate(3deg)" },
         },
+        dropdown: {
+          "0%": { transfrom: "translateY(0%)" },
+          "100%": { transfrom: "translateY(100%)" },
+        },
       },
       animation: {
         "bounce-slow": "bounce 2s linear infinite",
         fadein: "fadein 2s ease-in-out",
         wiggle: "wiggle 1s ease-in-out infinite",
+        dropdown: "dropdown 1s ease-in-out",
       },
     },
   },

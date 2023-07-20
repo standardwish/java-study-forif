@@ -1,8 +1,8 @@
 import Java from "../components/icons/java";
-
+import Image from "next/image";
 export default function Page() {
   return (
-    <div>
+    <div className="overflow-hidden">
       <div className="py-12 border-b-2 border-black pl-6">
         <h1 className="text-5xl animate-fadein">스터디가 진행되는 과정</h1>
         <p className="text-base mt-4 animate-fadein">
@@ -10,12 +10,24 @@ export default function Page() {
         </p>
       </div>
       <div className="flex flex-row items-center">
-        <div className="w-1/2 flex flex-col justify-center items-center animate-pulse hover:animate-none">
-          <Java />
-          <h1 className="text-5xl ">FORIF IN JAVA</h1>
-        </div>
+        <a
+          href="https://www.yes24.com/Product/Goods/24259565"
+          target="_blank"
+          className="w-1/2 flex flex-col justify-center items-center transition ease-in-out hover:scale-110 duration-300"
+        >
+          <Image
+            src="/images/book.jpg"
+            alt="book cover"
+            width={300}
+            height={500}
+          />
+          <h1 className="text-3xl">자바의 정석</h1>
+          <p className="text-base">
+            스터디의 강의, 과제는 위의 책을 기반으로 만들어집니다.
+          </p>
+        </a>
         <div className="flex flex-col gap-0 w-1/2">
-          <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 hover:animate-pulse">
+          <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 transition ease-in-out hover:scale-110 duration-300">
             <div className="flex flex-row justify-between mb-8">
               <button className="rounded-lg bg-black text-white px-2 text-xl">
                 01
@@ -35,7 +47,7 @@ export default function Page() {
               It will take <strong>15 minutes</strong>.
             </p>
           </div>
-          <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 hover:animate-pulse">
+          <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 transition ease-in-out hover:scale-110 duration-300">
             <div className="flex flex-row justify-between mb-8">
               <button className="rounded-lg bg-black text-white px-2 text-xl">
                 02
@@ -55,7 +67,7 @@ export default function Page() {
               will take <strong>50 minutes</strong>.
             </p>
           </div>
-          <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 hover:animate-pulse">
+          <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 transition ease-in-out hover:scale-110 duration-300">
             <div className="flex flex-row justify-between mb-8">
               <button className="rounded-lg bg-black text-white px-2 text-xl">
                 03
