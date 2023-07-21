@@ -6,6 +6,22 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      "2xl": { max: "1535px" },
+      // => @media (max-width: 1535px) { ... }
+
+      xl: { max: "1279px" },
+      // => @media (max-width: 1279px) { ... }
+
+      lg: { max: "1023px" },
+      // => @media (max-width: 1023px) { ... }
+
+      md: { max: "767px" },
+      // => @media (max-width: 767px) { ... }
+
+      sm: { max: "639px" },
+      // => @media (max-width: 639px) { ... }
+    },
     backgroundImage: {
       link_i:
         "linear-gradient(transparent, transparent), linear-gradient(black, black)",
@@ -33,20 +49,25 @@ module.exports = {
           "0%, 100%": { transform: "rotate(-3deg)" },
           "50%": { transform: "rotate(3deg)" },
         },
-        dropdown: {
-          "0%": { transfrom: "translateY(0%)" },
-          "100%": { transfrom: "translateY(100%)" },
-        },
         line: {
           "0%": { width: "0" },
           "100%": { width: "100%" },
+        },
+        dropdown_down: {
+          "0%": { transform: "translateY(-30%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        dropdown_up: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-30%)" },
         },
       },
       animation: {
         "bounce-slow": "bounce 2s linear infinite",
         fadein: "fadein 2s ease-in-out",
         wiggle: "wiggle 1s ease-in-out infinite",
-        dropdown: "dropdown 1s ease-in-out",
+        dropdown_down: "dropdown_down 0.5s ease",
+        dropdown_up: "dropdown_up 0.5s ease",
         line: "line 1s ease-in-out",
       },
     },

@@ -1,4 +1,4 @@
-const DownArrow = () => (
+const ShrinkArrow = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     height="30"
@@ -10,4 +10,4 @@ const DownArrow = () => (
   </svg>
 );
 
-export default DownArrow;
+export default ShrinkArrow;

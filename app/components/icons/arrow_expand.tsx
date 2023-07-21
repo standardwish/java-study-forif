@@ -1,4 +1,4 @@
-const UpArrow = () => (
+const ExpandArrow = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     height="30"
@@ -10,4 +10,4 @@ const UpArrow = () => (
   </svg>
 );
 
-export default UpArrow;
+export default ExpandArrow;

@@ -27,7 +27,7 @@ export default function Page() {
           </p>
         </a>
         <div className="flex flex-col gap-0 w-1/2">
-          <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 transition ease-in-out hover:scale-110 duration-300">
+          <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 transition ease-in-out hover:scale-110 bg-white duration-300">
             <div className="flex flex-row justify-between mb-8">
               <button className="rounded-lg bg-black text-white px-2 text-xl">
                 01
@@ -41,13 +41,14 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            <h1 className="text-4xl mb-3">Time To Review!</h1>
+            <h1 className="text-4xl mb-3">Time To Review</h1>
             <p className="text-2xl">
-              Have a time to review our codes which are provided in your hand!
-              It will take <strong>15 minutes</strong>.
+              지난 주의 과제를 바탕으로 소스코드를 리뷰합니다! 코드를
+              간결화하고, 명명법에 대해 알아봅니다.
+              <strong>15분</strong> 정도 소요됩니다.
             </p>
           </div>
-          <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 transition ease-in-out hover:scale-110 duration-300">
+          <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 transition ease-in-out hover:scale-110 bg-white duration-300">
             <div className="flex flex-row justify-between mb-8">
               <button className="rounded-lg bg-black text-white px-2 text-xl">
                 02
@@ -61,13 +62,13 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            <h1 className="text-4xl mb-3">Lecture Time</h1>
+            <h1 className="text-4xl mb-3">Lecture Time!</h1>
             <p className="text-2xl">
-              Two lecturers will teach you guys with proper codes and data. It
-              will take <strong>50 minutes</strong>.
+              멘토가 직접 준비한 강의 자료와 코드를 바탕으로 강의식 수업을
+              진행합니다. <strong>50분</strong> 정도 소요됩니다.
             </p>
           </div>
-          <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 transition ease-in-out hover:scale-110 duration-300">
+          <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 transition ease-in-out hover:scale-110 bg-white duration-300">
             <div className="flex flex-row justify-between mb-8">
               <button className="rounded-lg bg-black text-white px-2 text-xl">
                 03
@@ -82,11 +83,11 @@ export default function Page() {
               </div>
             </div>
             <h1 className="text-4xl mb-3">
-              Allocate Assignment and Organizing
+              Organizing and Allocate Assignment
             </h1>
             <p className="text-2xl">
-              After the lecture is over, you will get proper amounts of
-              assignments to step up! It will take <strong>10 minutes</strong>.
+              강의가 끝난 후, 강의 내용을 정리합니다. 이후 과제에 대한 안내가
+              있습니다. <strong>10분</strong> 정도 소요됩니다.
             </p>
           </div>
         </div>
