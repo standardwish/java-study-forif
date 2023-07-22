@@ -22,7 +22,7 @@ export default function Header() {
   };
 
   return (
-    <header className="flex flex-row justify-between items-center py-3 border-b-2 h-20 border-black">
+    <header className="flex flex-row justify-between items-center py-3 border-b-2 h-20 border-black md:border-none">
       <a href="/">
         <Logo />
       </a>
@@ -135,11 +135,11 @@ export default function Header() {
       </nav>
       {isLogin ? (
         <Link href="/mypage" className="w-28 text-center md:hidden">
-          마이페이지
+          <li>마이페이지</li>
         </Link>
       ) : (
         <Link href="/signin" className="w-28 text-center md:hidden">
-          로그인
+          <li>로그인</li>
         </Link>
       )}
       <div className="hidden md:block">
@@ -148,8 +148,8 @@ export default function Header() {
         </button>
       </div>
       {show && (
-        <div className="absolute top-20 w-full h-full bg-slate-50  z-50">
-          <ul className="pt-5 pl-4 flex flex-col gap-4 text-xl">
+        <div className="absolute top-20 w-full h-full bg-slate-50 z-50">
+          <ul className="pt-5 pl-4 flex flex-col gap-4 text-base">
             <div>
               <button
                 className="flex flex-row gap-1 items-center"
@@ -187,12 +187,23 @@ export default function Header() {
               <li>스터디 운영 방식</li>
             </Link>
             <hr className="bg-black mr-5" />
-            <Link
-              href="mailto:standardstar@hanyang.ac.kr"
-              onClick={() => setShow(false)}
-            >
-              <li>멘토에게 질문하세요!</li>
-            </Link>
+            {isLogin ? (
+              <Link href="/mypage" onClick={() => setShow(false)}>
+                <span>마이페이지</span>
+              </Link>
+            ) : (
+              <Link href="/signin" onClick={() => setShow(false)}>
+                <span
+                  className={
+                    pathname === "/login"
+                      ? "underline underline-offset-2 decoration-2 decoration-red-500 transition-all duration-200"
+                      : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p"
+                  }
+                >
+                  로그인
+                </span>
+              </Link>
+            )}
           </ul>
         </div>
       )}

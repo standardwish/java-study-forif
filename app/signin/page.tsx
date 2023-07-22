@@ -29,27 +29,33 @@ export default function SignUp() {
 
       if (res.ok) {
         const userInfo: UserType = await res.json();
-        console.log(`${userInfo.user.username} is Here!`);
         if (pwd === userInfo.user.password) {
           router.push("/");
+          window.scrollTo(0, 0);
           showToast({
             type: "success",
             message: `환영해요, ${userInfo.user.username}님!`,
           });
           localStorage.setItem("isLogin", "true");
         } else {
-          console.log("Login Failed");
+          showToast({
+            type: "error",
+            message: `비밀번호가 맞지 않아요. 비밀번호는 휴대전화 뒷 4자리에요.`,
+          });
         }
       } else {
         throw new Error("Failed to Login!");
       }
     } catch (error) {
-      console.log(error);
+      showToast({
+        type: "error",
+        message: `로그인에 실패했어요. 아직 DB에 추가되지 않았거나 존재하지 않는 이름이에요.`,
+      });
     }
   };
 
   return (
-    <div className="py-24 my-5 rounded-xl bg-white shadow-xl md:shadow-none flex flex-col justify-center items-center w-2/5 md:mx-0 mx-auto">
+    <div className="py-24 md:py-10 my-5 rounded-xl bg-white shadow-xl md:shadow-none flex flex-col justify-center items-center w-2/5 md:w-4/5 mx-auto">
       <div className="space-y-4 flex flex-col justify-center items-center mb-6">
         <Forif />
         <h2 className="text-2xl text-cyan-900 font-bold">로그인하기</h2>
@@ -58,7 +64,7 @@ export default function SignUp() {
         <div>
           <label
             htmlFor="username"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-gray-900 "
           >
             USERNAME
           </label>
@@ -66,7 +72,7 @@ export default function SignUp() {
             type="text"
             name="username"
             id="username"
-            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 md:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
             placeholder="표준성"
             value={username || ""}
             onChange={(e) => setUsername(e.target.value)}
@@ -75,15 +81,15 @@ export default function SignUp() {
         <div>
           <label
             htmlFor="password"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-gray-900"
           >
-            Password
+            PASSWORD
           </label>
           <input
             type="password"
             name="password"
             id="password"
-            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 md:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
             placeholder="9868"
             value={pwd || ""}
             onChange={(e) => setPwd(e.target.value)}
@@ -97,7 +103,7 @@ export default function SignUp() {
           로그인
         </button>
       </form>
-      <div className="mt-8 space-y-4 text-gray-600 text-center sm:-mb-8">
+      <div className="mt-8 space-y-4 text-gray-600 text-center md:break-keep md:text-sm">
         <p className="text-xs">
           이 로그인 과정을 통해 이름, 학과 정보를 가져옵니다.
         </p>
