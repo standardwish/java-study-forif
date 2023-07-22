@@ -43,7 +43,7 @@ export default function Page() {
         />
         <h1 className="text-xl mb-2 font-bold">자바의 정석, 남궁성</h1>
         <p className="text-base">
-          스터디의 강의, 과제는 '자바의 정석'을
+          스터디의 강의, 과제는 &apos;자바의 정석&apos;을
           <br />
           기반으로 만들어집니다.
         </p>
