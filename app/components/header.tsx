@@ -22,7 +22,7 @@ export default function Header() {
   };
 
   return (
-    <header className="flex flex-row justify-between items-center py-3 border-b-2 h-20 border-black md:border-none">
+    <header className="flex flex-row justify-between items-center py-3 border-b-2 h-20">
       <a href="/">
         <Logo />
       </a>
