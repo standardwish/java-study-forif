@@ -28,6 +28,7 @@ module.exports = {
     },
     transitionProperty: {
       backgroundSize: "background-size",
+      all: "all",
     },
     backgroundPosition: {
       link_p: "0 100%",

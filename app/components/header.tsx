@@ -2,15 +2,18 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import Logo from "./icons/logo";
-import NavIcon from "./icons/nav_logo";
 import ExpandArrow from "./icons/arrow_expand";
 import ShrinkArrow from "./icons/arrow_less";
+import Logo from "./icons/logo";
+import NavIcon from "./icons/nav_logo";
 export default function Header() {
   const pathname = usePathname();
   const [assign, setAssign] = useState(false);
   const [show, setShow] = useState(false);
   const [detail, showDetail] = useState(false);
+  const isLogin = localStorage.getItem("isLogin");
+  console.log(isLogin);
+
   const onShow = () => {
     if (show) {
       setShow(false);
@@ -115,13 +118,30 @@ export default function Header() {
             스터디 운영 방식
           </span>
         </Link>
+        <Link
+          href="/attendance"
+          className="flex flex-row gap-0 items-center justify-center transition ease-in-out delay-150 hover:scale-110 duration-300"
+        >
+          <span
+            className={
+              pathname === "/attendance"
+                ? "underline underline-offset-2 decoration-2 decoration-red-500 transition-all duration-200"
+                : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p"
+            }
+          >
+            출석
+          </span>
+        </Link>
       </nav>
-      <Link
-        href="mailto:standardstar@hanyang.ac.kr"
-        className="w-40 text-center rounded-xl border-blue-600 border-4 bg-blue-600 px-2 py-1 mr-3 text-xs hover:text-blue-600 hover:border-white hover:bg-white text-white transition-all duration-200 md:hidden"
-      >
-        멘토에게 질문하세요!
-      </Link>
+      {isLogin ? (
+        <Link href="/mypage" className="w-28 text-center md:hidden">
+          마이페이지
+        </Link>
+      ) : (
+        <Link href="/signin" className="w-28 text-center md:hidden">
+          로그인
+        </Link>
+      )}
       <div className="hidden md:block">
         <button className="mr-3 mt-2" onClick={() => setShow(!show)}>
           <NavIcon />

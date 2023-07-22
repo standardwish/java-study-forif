@@ -1,8 +1,9 @@
-import "./globals.css";
 import type { Metadata } from "next";
+import Footer from "./components/footer";
 import Header from "./components/header";
 import { NotoSansKR } from "./fonts";
-import Footer from "./components/footer";
+import "./globals.css";
+import { Toast } from "./components/toast/toast";
 
 export const metadata: Metadata = {
   title: "Java In Forif",
@@ -22,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={NotoSansKR.className}>
+        <Toast />
         <Header />
         {children}
         <Footer />
