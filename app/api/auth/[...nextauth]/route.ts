@@ -52,7 +52,7 @@ const options: NextAuthOptions = {
       return session;
     },
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: "TLwTBpBn7xamJT7LHyCquAXJ2QCzyPPsIIObi3RrBk0=",
 };
 
 const handler = NextAuth(options);
