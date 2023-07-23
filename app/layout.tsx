@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import AuthSession from "./AuthSession";
 import Footer from "./components/footer";
 import Header from "./components/header";
+import { Toast } from "./components/toast/toast";
 import { NotoSansKR } from "./fonts";
 import "./globals.css";
-import { Toast } from "./components/toast/toast";
-
 export const metadata: Metadata = {
   title: "Java In Forif",
   description: "JAVA STUDY IN FORIF",
@@ -23,10 +23,12 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={NotoSansKR.className}>
-        <Toast />
-        <Header />
-        {children}
-        <Footer />
+        <AuthSession>
+          <Toast />
+          <Header />
+          {children}
+          <Footer />
+        </AuthSession>
       </body>
     </html>
   );

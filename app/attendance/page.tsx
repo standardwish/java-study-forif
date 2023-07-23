@@ -1,4 +1,7 @@
 import { UsersType } from "@/types/type";
+import { Suspense } from "react";
+import Loading from "./loading";
+import getDate from "@/lib/getDate";
 
 const getUsers = async () => {
   try {
@@ -12,23 +15,12 @@ const getUsers = async () => {
   }
 };
 
-const getDate = () => {
-  let today = new Date();
-
-  let year = today.getFullYear(); // 년도
-  let month = today.getMonth() + 1; // 월
-  let date = today.getDate(); // 날짜
-  let day = today.getDay(); // 요일
-
-  return `${year}년 ${month}월 ${date}일`;
-};
-
-export default async function Page() {
+async function ListMember() {
+  const date = getDate(new Date());
   const { users }: UsersType = await getUsers();
-
   return (
     <div className="max-w-6xl mx-auto mt-5">
-      <h1 className="text-center">{getDate()}</h1>
+      <h1 className="text-center">{date}</h1>
       <h1 className="text-4xl text-center mb-5">스터디 부원 명단</h1>
 
       <div className="relative overflow-x-auto">
@@ -76,5 +68,13 @@ export default async function Page() {
         </table>
       </div>
     </div>
+  );
+}
+
+export default async function Page() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <ListMember />
+    </Suspense>
   );
 }

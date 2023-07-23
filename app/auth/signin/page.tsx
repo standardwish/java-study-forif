@@ -1,56 +1,49 @@
 "use client";
-import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Forif from "../components/icons/forif";
-import login from "../hooks/login";
-import { UserType } from "@/types/type";
-import { showToast } from "../components/toast/toast";
+import { useState } from "react";
+import Forif from "../../components/icons/forif";
+import { showToast } from "../../components/toast/toast";
+import { loginUser } from "../../hooks/setUser";
 export default function SignUp() {
   const [username, setUsername] = useState("");
-  const [pwd, setPwd] = useState("");
+  const [password, setPassword] = useState("");
 
   const router = useRouter();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    if (!username || !pwd) {
-      alert("Username and Password are required");
-      return;
-    }
-
-    try {
-      const res = await fetch(`http://localhost:3000/api/users/${username}`, {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json",
-        },
+    if (!username || !password) {
+      showToast({
+        type: "error",
+        message: "이름과 비밀번호를 모두 입력해주세요.",
       });
-
-      if (res.ok) {
-        const userInfo: UserType = await res.json();
-        if (pwd === userInfo.user.password) {
+    } else {
+      try {
+        const loginRes = await loginUser({ username, password });
+        if (loginRes?.error === null) {
           router.push("/");
-          window.scrollTo(0, 0);
           showToast({
             type: "success",
-            message: `환영해요, ${userInfo.user.username}님!`,
+            message: `환영해요, ${username}님!`,
           });
-          localStorage.setItem("isLogin", "true");
-        } else {
+        } else if (loginRes?.error === "Password InCorrect Credentials") {
           showToast({
             type: "error",
             message: `비밀번호가 맞지 않아요. 비밀번호는 휴대전화 뒷 4자리에요.`,
           });
+        } else if (loginRes?.error === "No User Credentials") {
+          showToast({
+            type: "error",
+            message: `데이터베이스에 해당하는 유저가 없어요.`,
+          });
         }
-      } else {
-        throw new Error("Failed to Login!");
+      } catch (error) {
+        showToast({
+          type: "error",
+          message: `로그인에 실패했어요. 아직 DB에 추가되지 않았거나 존재하지 않는 이름이에요.`,
+        });
       }
-    } catch (error) {
-      showToast({
-        type: "error",
-        message: `로그인에 실패했어요. 아직 DB에 추가되지 않았거나 존재하지 않는 이름이에요.`,
-      });
     }
   };
 
@@ -91,8 +84,8 @@ export default function SignUp() {
             id="password"
             className="bg-gray-50 border border-gray-300 text-gray-900 md:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
             placeholder="9868"
-            value={pwd || ""}
-            onChange={(e) => setPwd(e.target.value)}
+            value={password || ""}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <button

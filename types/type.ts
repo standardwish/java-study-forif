@@ -1,19 +1,32 @@
 export interface UsersType {
   users: {
-    _id: String;
-    username: String;
-    password?: String;
-    major: String;
-    assignment: String;
+    _id: string;
+    username: string;
+    password?: string;
+    major: string;
+    assignment: string;
   }[];
 }
 
 export interface UserType {
   user: {
-    _id: String;
-    username: String;
-    password?: String;
-    major: String;
-    assignment: String;
+    _id: string;
+    username: string;
+    password?: string;
+    major: string;
+    assignment: string;
   };
+}
+
+export interface IUser {
+  _id: string;
+  username: string;
+  password: string;
+  major: string;
+  assignment: string;
+}
+
+export interface LoginUserParams {
+  username: string;
+  password: string;
 }

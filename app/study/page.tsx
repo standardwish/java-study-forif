@@ -1,7 +1,9 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
-export default function Page() {
+import { Suspense, useState } from "react";
+import Loading from "./loading";
+
+function Study() {
   const [toggle, setToggle] = useState(false);
   const clickedToggle = () => {
     setToggle((prev) => !prev);
@@ -199,5 +201,13 @@ export default function Page() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <Study />
+    </Suspense>
   );
 }

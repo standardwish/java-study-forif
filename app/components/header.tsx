@@ -6,14 +6,13 @@ import ExpandArrow from "./icons/arrow_expand";
 import ShrinkArrow from "./icons/arrow_less";
 import Logo from "./icons/logo";
 import NavIcon from "./icons/nav_logo";
+import { useSession } from "next-auth/react";
 export default function Header() {
   const pathname = usePathname();
   const [assign, setAssign] = useState(false);
   const [show, setShow] = useState(false);
   const [detail, showDetail] = useState(false);
-  const isLogin = localStorage.getItem("isLogin");
-  console.log(isLogin);
-
+  const { data: session } = useSession();
   const onShow = () => {
     if (show) {
       setShow(false);
@@ -44,7 +43,7 @@ export default function Header() {
             {assign ? <ShrinkArrow /> : <ExpandArrow />}
           </button>
           {assign && (
-            <ul className="border-2 border-gray-100 absolute top-16 flex flex-col gap-3 bg-white w-44 py-2 pl-4 z-0">
+            <ul className="border-2 border-gray-100 absolute top-16 flex flex-col gap-3 bg-white w-44 py-2 pl-4 z-50">
               <Link
                 href="/assignment"
                 className="z-0 hover:text-blue-500"
@@ -133,13 +132,29 @@ export default function Header() {
           </span>
         </Link>
       </nav>
-      {isLogin ? (
-        <Link href="/mypage" className="w-28 text-center md:hidden">
-          <li>마이페이지</li>
+      {session ? (
+        <Link href="/auth/mypage" className="w-28 text-center md:hidden">
+          <span
+            className={
+              pathname === "/auth/mypage"
+                ? "underline underline-offset-2 decoration-2 decoration-red-500 transition-all duration-200"
+                : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p"
+            }
+          >
+            마이페이지
+          </span>
         </Link>
       ) : (
-        <Link href="/signin" className="w-28 text-center md:hidden">
-          <li>로그인</li>
+        <Link href="/auth/signin" className="w-28 text-center md:hidden">
+          <span
+            className={
+              pathname === "/auth/signin"
+                ? "underline underline-offset-2 decoration-2 decoration-red-500 transition-all duration-200"
+                : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p"
+            }
+          >
+            로그인
+          </span>
         </Link>
       )}
       <div className="hidden md:block">
@@ -187,21 +202,13 @@ export default function Header() {
               <li>스터디 운영 방식</li>
             </Link>
             <hr className="bg-black mr-5" />
-            {isLogin ? (
-              <Link href="/mypage" onClick={() => setShow(false)}>
-                <span>마이페이지</span>
+            {session ? (
+              <Link href="/auth/mypage" onClick={() => setShow(false)}>
+                <li>마이페이지</li>
               </Link>
             ) : (
-              <Link href="/signin" onClick={() => setShow(false)}>
-                <span
-                  className={
-                    pathname === "/login"
-                      ? "underline underline-offset-2 decoration-2 decoration-red-500 transition-all duration-200"
-                      : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p"
-                  }
-                >
-                  로그인
-                </span>
+              <Link href="/auth/signin" onClick={() => setShow(false)}>
+                <li>로그인</li>
               </Link>
             )}
           </ul>
