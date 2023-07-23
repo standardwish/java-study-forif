@@ -7,7 +7,6 @@ import Loading from "./loading";
 async function ListMember() {
   const date = getDate(new Date());
   const { users }: UsersType = await getAllUsers();
-  console.log(users);
 
   const isAttend = true;
 

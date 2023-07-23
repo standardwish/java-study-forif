@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_URI = "https://java-study-forif.vercel.app/api/users";
-
+const AUTH_URI = "https://java-study-forif.vercel.app/api/users";
+const LOCAL_URI = "http://localhost:3000/api/users";
 /**
  * 모든 유저 정보 반환
  * @param 모든 유저의 이름/학과/과제 수행 횟수
@@ -9,8 +9,17 @@ const API_URI = "https://java-study-forif.vercel.app/api/users";
  */
 export const getAllUsers = async () => {
   try {
-    const res = await axios.get(API_URI);
-    return res.data;
+    if (process.env.NODE_ENV === "development") {
+      const res = await axios.get(LOCAL_URI);
+      console.log(res);
+
+      return res.data;
+    } else if (process.env.NODE_ENV === "production") {
+      const res = await axios.get(AUTH_URI);
+      console.log(res);
+
+      return res.data;
+    }
   } catch (error) {
     if (axios.isAxiosError(error)) {
       return axios.isAxiosError(error);
