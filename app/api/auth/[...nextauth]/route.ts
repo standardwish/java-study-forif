@@ -52,7 +52,6 @@ const options: NextAuthOptions = {
       return session;
     },
   },
-  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
 };
 
 const handler = NextAuth(options);
