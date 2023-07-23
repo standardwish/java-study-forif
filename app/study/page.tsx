@@ -1,14 +1,13 @@
-'use client'
-import Image from 'next/image'
-import { Suspense, useState } from 'react'
-import Loading from './loading'
+"use client";
+import Image from "next/image";
+import { Suspense, useState } from "react";
+import Loading from "./loading";
 
-function Study () {
-  const [toggle, setToggle] = useState(false)
+function Study() {
+  const [toggle, setToggle] = useState(false);
   const clickedToggle = () => {
-    setToggle((prev) => !prev)
-  }
-  console.log(toggle)
+    setToggle((prev) => !prev);
+  };
 
   return (
     <div className="overflow-hidden">
@@ -27,7 +26,7 @@ function Study () {
           />
           <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
           <span className="ml-3 text-base font-medium text-gray-900 dark:text-gray-300">
-            {toggle ? '오프라인' : '온라인'} 과정
+            {toggle ? "오프라인" : "온라인"} 과정
           </span>
         </label>
       </div>
@@ -67,8 +66,7 @@ function Study () {
             스터디의 강의, 과제는 위의 책을 기반으로 만들어집니다.
           </p>
         </a>
-        {toggle
-          ? (
+        {toggle ? (
           <div className="flex flex-col gap-0 w-1/2 md:w-full transition-all duration-300">
             <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 md:py-3 md:pl-2 transition ease-in-out hover:scale-110 bg-white duration-300">
               <div className="flex flex-row justify-between mb-8 md:mb-4">
@@ -134,8 +132,7 @@ function Study () {
               </p>
             </div>
           </div>
-            )
-          : (
+        ) : (
           <div className="flex flex-col gap-0 w-1/2 md:w-full">
             <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 md:py-3 md:pl-2 transition ease-in-out hover:scale-110 bg-white duration-300">
               <div className="flex flex-row justify-between mb-8 md:mb-4">
@@ -200,16 +197,16 @@ function Study () {
               </p>
             </div>
           </div>
-            )}
+        )}
       </div>
     </div>
-  )
+  );
 }
 
-export default function Page () {
+export default function Page() {
   return (
     <Suspense fallback={<Loading />}>
       <Study />
     </Suspense>
-  )
+  );
 }

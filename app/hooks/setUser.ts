@@ -1,22 +1,21 @@
-import { type LoginUserParams } from '@/types/type'
-import { signIn, signOut } from 'next-auth/react'
+import { type LoginUserParams } from "@/types/type";
+import { signIn, signOut } from "next-auth/react";
 export const loginUser = async ({ username, password }: LoginUserParams) => {
-  const res = await signIn('credentials', {
+  const res = await signIn("credentials", {
     redirect: false,
     username,
-    password
-  })
-  return res
-}
+    password,
+  });
+  return res;
+};
 
 export const logOutUser = async () => {
   try {
     const res = await signOut({
       redirect: false,
-      callbackUrl: '/'
-    })
-    console.log(res)
+      callbackUrl: "/",
+    });
   } catch (e) {
-    console.log(e)
+    console.log(e);
   }
-}
+};

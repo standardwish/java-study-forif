@@ -2,13 +2,12 @@
 import Forif from '@/app/components/icons/forif'
 import { showToast } from '@/app/components/toast/toast'
 import { useSession } from 'next-auth/react'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { logOutUser } from '../../hooks/setUser'
-import Link from 'next/link'
 export default function Page () {
   const router = useRouter()
-  const { data: session, status } = useSession()
-  console.log(status)
+  const { data: session } = useSession()
 
   const logout = () => {
     logOutUser()

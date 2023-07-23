@@ -21,6 +21,7 @@ export default function SignUp () {
     } else {
       try {
         const loginRes = await loginUser({ username, password })
+
         if (loginRes?.error === null) {
           router.push('/')
           showToast({
@@ -96,7 +97,7 @@ export default function SignUp () {
         </div>
         <button
           type="submit"
-          onClick={() => handleSubmit}
+          onClick={handleSubmit}
           className="w-full text-black"
         >
           로그인
