@@ -4,7 +4,7 @@ const API_URI = "https://java-study-forif.vercel.app/api/users";
 
 /**
  * 모든 유저 정보 반환
- * @param 유저아이디
+ * @param 모든 유저의 이름/학과/과제 수행 횟수
  * @returns 유저정보
  */
 export const getAllUsers = async () => {
