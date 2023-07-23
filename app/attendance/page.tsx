@@ -1,30 +1,14 @@
-import { UsersType } from "@/types/type";
-import { Suspense } from "react";
-import Loading from "./loading";
-import getDate from "@/lib/getDate";
+import getDate from '@/lib/getDate'
+import { type UsersType } from '@/types/type'
+import { Suspense } from 'react'
+import { getAllUsers } from '../hooks/getUser'
+import Loading from './loading'
 
-const api_uri =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3000/api"
-    : "https://java-study-forif.vercel.app/api";
-const getUsers = async () => {
-  try {
-    const res = await fetch(`${api_uri}/users`, {
-      headers: {
-        Accept: "application/json",
-      },
-      cache: "no-store",
-    });
+async function ListMember () {
+  const date = getDate(new Date())
+  const { users }: UsersType = await getAllUsers()
+  const isAttend = true
 
-    return res.json();
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-async function ListMember() {
-  const date = getDate(new Date());
-  const { users }: UsersType = await getUsers();
   return (
     <div className="max-w-6xl mx-auto mt-5">
       <h1 className="text-center">{date}</h1>
@@ -62,11 +46,13 @@ async function ListMember() {
                 </th>
                 <td className="px-6 py-4">{user.major}</td>
                 <td className="px-6 py-4">
-                  {true ? (
+                  {isAttend
+                    ? (
                     <p className="text-blue-400">출석</p>
-                  ) : (
+                      )
+                    : (
                     <p className="text-red-400">결석</p>
-                  )}
+                      )}
                 </td>
                 <td className="px-6 py-4">{user.assignment}</td>
               </tr>
@@ -75,13 +61,13 @@ async function ListMember() {
         </table>
       </div>
     </div>
-  );
+  )
 }
 
-export default async function Page() {
+export default async function Page () {
   return (
     <Suspense fallback={<Loading />}>
       <ListMember />
     </Suspense>
-  );
+  )
 }
