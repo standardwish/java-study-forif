@@ -3,9 +3,13 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import getDate from "@/lib/getDate";
 
+const api_uri =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000/api"
+    : "https://java-study-forif.vercel.app/api";
 const getUsers = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/users", {
+    const res = await fetch(`${api_uri}/users`, {
       cache: "no-store",
     });
 

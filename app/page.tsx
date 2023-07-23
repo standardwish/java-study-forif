@@ -7,8 +7,6 @@ import Loading from "./loading";
 
 function MainPage() {
   const { data: session, status } = useSession();
-  console.log(status);
-
   return (
     <div>
       <div className="pl-8 bg-[url('/images/main-bg-img.webp')] bg-cover w-full h-screen bg-center bg-fixed main-bg-img flex md:flex-col flex-row justify-between md:justify-normal">
@@ -57,6 +55,8 @@ function MainPage() {
 }
 
 export default function Home() {
+  console.log(process.env.NODE_ENV);
+
   return (
     <Suspense fallback={<Loading />}>
       <MainPage />
