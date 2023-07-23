@@ -10,6 +10,9 @@ const api_uri =
 const getUsers = async () => {
   try {
     const res = await fetch(`${api_uri}/users`, {
+      headers: {
+        Accept: "application/json",
+      },
       cache: "no-store",
     });
 
