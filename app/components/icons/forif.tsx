@@ -12,6 +12,6 @@ const Forif = () => (
       strokeWidth="8"
     />
   </svg>
-);
+)
 
-export default Forif;
+export default Forif

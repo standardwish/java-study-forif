@@ -1,24 +1,23 @@
-"use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
-import ExpandArrow from "./icons/arrow_expand";
-import ShrinkArrow from "./icons/arrow_less";
-import Logo from "./icons/logo";
-import NavIcon from "./icons/nav_logo";
-import { useSession } from "next-auth/react";
-export default function Header() {
-  const pathname = usePathname();
-  const [assign, setAssign] = useState(false);
-  const [show, setShow] = useState(false);
-  const [detail, showDetail] = useState(false);
-  const { data: session } = useSession();
+'use client'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useState } from 'react'
+import ExpandArrow from './icons/arrow_expand'
+import ShrinkArrow from './icons/arrow_less'
+import Logo from './icons/logo'
+import NavIcon from './icons/nav_logo'
+import { useSession } from 'next-auth/react'
+export default function Header () {
+  const pathname = usePathname()
+  const [assign, setAssign] = useState(false)
+  const [show, setShow] = useState(false)
+  const [detail, showDetail] = useState(false)
+  const { data: session } = useSession()
   const onShow = () => {
     if (show) {
-      setShow(false);
-    } else {
+      setShow(false)
     }
-  };
+  }
 
   return (
     <header className="flex flex-row justify-between items-center py-3 border-b-2 h-20">
@@ -29,13 +28,15 @@ export default function Header() {
         <div className="inline-block">
           <button
             className="flex flex-row gap-0 items-center justify-center transition ease-in-out hover:scale-110 duration-300"
-            onClick={() => setAssign(!assign)}
+            onClick={() => {
+              setAssign(!assign)
+            }}
           >
             <span
               className={
-                pathname === "/assignment"
-                  ? "underline underline-offset-2 decoration-2 decoration-red-500 transition-all duration-200"
-                  : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p"
+                pathname === '/assignment'
+                  ? 'underline underline-offset-2 decoration-2 decoration-red-500 transition-all duration-200'
+                  : 'border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p'
               }
             >
               과제
@@ -47,10 +48,12 @@ export default function Header() {
               <Link
                 href="/assignment"
                 className="z-0 hover:text-blue-500"
-                onClick={() => setAssign(false)}
+                onClick={() => {
+                  setAssign(false)
+                }}
               >
                 <li
-                  className={pathname === "/assignment" ? "text-red-500" : ""}
+                  className={pathname === '/assignment' ? 'text-red-500' : ''}
                 >
                   과제 확인
                 </li>
@@ -59,11 +62,13 @@ export default function Header() {
               <Link
                 href="/assignment/submit"
                 className="z-0 hover:text-blue-500"
-                onClick={() => setAssign(false)}
+                onClick={() => {
+                  setAssign(false)
+                }}
               >
                 <li
                   className={
-                    pathname === "/assignment/submit" ? "text-red-500" : ""
+                    pathname === '/assignment/submit' ? 'text-red-500' : ''
                   }
                 >
                   과제 제출
@@ -76,11 +81,13 @@ export default function Header() {
               <Link
                 href="/assignment/solution"
                 className="z-0 hover:text-blue-500"
-                onClick={() => setAssign(false)}
+                onClick={() => {
+                  setAssign(false)
+                }}
               >
                 <li
                   className={
-                    pathname === "/assignment/solution" ? "text-red-500" : ""
+                    pathname === '/assignment/solution' ? 'text-red-500' : ''
                   }
                 >
                   솔루션 보기
@@ -95,9 +102,9 @@ export default function Header() {
         >
           <span
             className={
-              pathname === "/errors"
-                ? "underline underline-offset-2 decoration-2 decoration-red-500 transition-all duration-200"
-                : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p"
+              pathname === '/errors'
+                ? 'underline underline-offset-2 decoration-2 decoration-red-500 transition-all duration-200'
+                : 'border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p'
             }
           >
             자주 발생하는 에러
@@ -109,9 +116,9 @@ export default function Header() {
         >
           <span
             className={
-              pathname === "/study"
-                ? "underline underline-offset-2 decoration-2 decoration-red-500 transition-all duration-200"
-                : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p"
+              pathname === '/study'
+                ? 'underline underline-offset-2 decoration-2 decoration-red-500 transition-all duration-200'
+                : 'border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p'
             }
           >
             스터디 운영 방식
@@ -123,42 +130,49 @@ export default function Header() {
         >
           <span
             className={
-              pathname === "/attendance"
-                ? "underline underline-offset-2 decoration-2 decoration-red-500 transition-all duration-200"
-                : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p"
+              pathname === '/attendance'
+                ? 'underline underline-offset-2 decoration-2 decoration-red-500 transition-all duration-200'
+                : 'border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p'
             }
           >
             출석
           </span>
         </Link>
       </nav>
-      {session ? (
+      {session
+        ? (
         <Link href="/auth/mypage" className="w-28 text-center md:hidden">
           <span
             className={
-              pathname === "/auth/mypage"
-                ? "underline underline-offset-2 decoration-2 decoration-red-500 transition-all duration-200"
-                : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p"
+              pathname === '/auth/mypage'
+                ? 'underline underline-offset-2 decoration-2 decoration-red-500 transition-all duration-200'
+                : 'border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p'
             }
           >
             마이페이지
           </span>
         </Link>
-      ) : (
+          )
+        : (
         <Link href="/auth/signin" className="w-28 text-center md:hidden">
           <span
             className={
-              pathname === "/auth/signin"
-                ? "underline underline-offset-2 decoration-2 decoration-red-500 transition-all duration-200"
-                : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p"
+              pathname === '/auth/signin'
+                ? 'underline underline-offset-2 decoration-2 decoration-red-500 transition-all duration-200'
+                : 'border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p'
             }
           >
             로그인
           </span>
         </Link>
-      )}
+          )}
       <div className="hidden md:block">
-        <button className="mr-3 mt-2" onClick={() => setShow(!show)}>
+        <button
+          className="mr-3 mt-2"
+          onClick={() => {
+            setShow(!show)
+          }}
+        >
           <NavIcon />
         </button>
       </div>
@@ -168,7 +182,9 @@ export default function Header() {
             <div>
               <button
                 className="flex flex-row gap-1 items-center"
-                onClick={() => showDetail(!detail)}
+                onClick={() => {
+                  showDetail(!detail)
+                }}
               >
                 과제
                 {detail ? <ShrinkArrow /> : <ExpandArrow />}
@@ -180,13 +196,17 @@ export default function Header() {
                   </Link>
                   <Link
                     href="/assignment/submit"
-                    onClick={() => setShow(false)}
+                    onClick={() => {
+                      setShow(false)
+                    }}
                   >
                     <li className="text-base font-light">과제 제출</li>
                   </Link>
                   <Link
                     href="/assignment/solution"
-                    onClick={() => setShow(false)}
+                    onClick={() => {
+                      setShow(false)
+                    }}
                   >
                     <li className="text-base font-light">솔루션</li>
                   </Link>
@@ -194,26 +214,48 @@ export default function Header() {
               )}
             </div>
             <hr className="bg-black mr-5" />
-            <Link href="/errors" onClick={() => setShow(false)}>
+            <Link
+              href="/errors"
+              onClick={() => {
+                setShow(false)
+              }}
+            >
               <li>자주 발생하는 오류</li>
             </Link>
             <hr className="bg-black mr-5" />
-            <Link href="/study" onClick={() => setShow(false)}>
+            <Link
+              href="/study"
+              onClick={() => {
+                setShow(false)
+              }}
+            >
               <li>스터디 운영 방식</li>
             </Link>
             <hr className="bg-black mr-5" />
-            {session ? (
-              <Link href="/auth/mypage" onClick={() => setShow(false)}>
+            {session
+              ? (
+              <Link
+                href="/auth/mypage"
+                onClick={() => {
+                  setShow(false)
+                }}
+              >
                 <li>마이페이지</li>
               </Link>
-            ) : (
-              <Link href="/auth/signin" onClick={() => setShow(false)}>
+                )
+              : (
+              <Link
+                href="/auth/signin"
+                onClick={() => {
+                  setShow(false)
+                }}
+              >
                 <li>로그인</li>
               </Link>
-            )}
+                )}
           </ul>
         </div>
       )}
     </header>
-  );
+  )
 }

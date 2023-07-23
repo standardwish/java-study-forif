@@ -20,6 +20,6 @@ const Logo = () => (
       fill="black"
     />
   </svg>
-);
+)
 
-export default Logo;
+export default Logo

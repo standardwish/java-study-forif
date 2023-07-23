@@ -1,5 +1,5 @@
-import Image from "next/image";
-export default function Footer() {
+import Image from 'next/image'
+export default function Footer () {
   return (
     <footer className="flex flex-row justify-between items-center h-20 px-3 md:justify-center">
       <Image
@@ -19,5 +19,5 @@ export default function Footer() {
         </p>
       </div>
     </footer>
-  );
+  )
 }

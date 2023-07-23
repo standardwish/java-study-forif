@@ -1,6 +1,6 @@
-import Image from "next/image";
-import ExpandArrow from "../components/icons/arrow_expand";
-export default function Page() {
+import Image from 'next/image'
+import ExpandArrow from '../components/icons/arrow_expand'
+export default function Page () {
   return (
     <div className="max-w-5xl mb-3 mx-auto mt-10 md:mt-5 md:ml-3 flex flex-col justify-center items-center">
       <div className="mb-5 flex flex-row gap-2 items-center justify-center">
@@ -24,5 +24,5 @@ export default function Page() {
         </button>
       </div>
     </div>
-  );
+  )
 }

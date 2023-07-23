@@ -1,7 +1,7 @@
-"use client";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { assignment3 } from "./code";
+'use client'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { assignment3 } from './code'
 const Assignment3 = () => {
   return (
     <div>
@@ -9,7 +9,7 @@ const Assignment3 = () => {
         {assignment3}
       </SyntaxHighlighter>
     </div>
-  );
-};
+  )
+}
 
-export default Assignment3;
+export default Assignment3

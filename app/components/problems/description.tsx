@@ -1,9 +1,9 @@
 interface propType {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
-export default function Description(props: propType) {
-  const { children } = props;
+export default function Description (props: propType) {
+  const { children } = props
   return (
     <>
       <h3 className="text-lg text-gray-500 font-bold border-b-2 border-solid pb-3 border-gray-200">
@@ -13,5 +13,5 @@ export default function Description(props: propType) {
         {children}
       </p>
     </>
-  );
+  )
 }

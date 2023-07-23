@@ -42,5 +42,13 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.33.0",
     "typescript": "^5.1.6"
-  }
+  },
+  "eslintIgnore": [
+    "postcss.config.js",
+    "tailwind.config.js",
+    "next.config.js",
+    "*.ico",
+    "*.css",
+    "*.svg"
+  ]
 }

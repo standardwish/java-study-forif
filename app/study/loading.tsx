@@ -1,5 +1,5 @@
-import Spinner from "../components/loading/Spinner";
-export default function Loading() {
+import Spinner from '../components/loading/Spinner'
+export default function Loading () {
   return (
     <>
       <div className="opacity-10">
@@ -88,5 +88,5 @@ export default function Loading() {
       </div>
       <Spinner />
     </>
-  );
+  )
 }

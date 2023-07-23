@@ -1,51 +1,53 @@
-"use client";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import Forif from "../../components/icons/forif";
-import { showToast } from "../../components/toast/toast";
-import { loginUser } from "../../hooks/setUser";
-export default function SignUp() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+'use client'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+import Forif from '../../components/icons/forif'
+import { showToast } from '../../components/toast/toast'
+import { loginUser } from '../../hooks/setUser'
+export default function SignUp () {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
-  const router = useRouter();
+  const router = useRouter()
 
   const handleSubmit = async (e: any) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (!username || !password) {
       showToast({
-        type: "error",
-        message: "이름과 비밀번호를 모두 입력해주세요.",
-      });
+        type: 'error',
+        message: '이름과 비밀번호를 모두 입력해주세요.'
+      })
     } else {
       try {
-        const loginRes = await loginUser({ username, password });
+        const loginRes = await loginUser({ username, password })
         if (loginRes?.error === null) {
-          router.push("/");
+          router.push('/')
           showToast({
-            type: "success",
-            message: `환영해요, ${username}님!`,
-          });
-        } else if (loginRes?.error === "Password InCorrect Credentials") {
+            type: 'success',
+            message: `환영해요, ${username}님!`
+          })
+        } else if (loginRes?.error === 'Password InCorrect Credentials') {
           showToast({
-            type: "error",
-            message: `비밀번호가 맞지 않아요. 비밀번호는 휴대전화 뒷 4자리에요.`,
-          });
-        } else if (loginRes?.error === "No User Credentials") {
+            type: 'error',
+            message:
+              '비밀번호가 맞지 않아요. 비밀번호는 휴대전화 뒷 4자리에요.'
+          })
+        } else if (loginRes?.error === 'No User Credentials') {
           showToast({
-            type: "error",
-            message: `데이터베이스에 해당하는 유저가 없어요.`,
-          });
+            type: 'error',
+            message: '데이터베이스에 해당하는 유저가 없어요.'
+          })
         }
       } catch (error) {
         showToast({
-          type: "error",
-          message: `로그인에 실패했어요. 아직 DB에 추가되지 않았거나 존재하지 않는 이름이에요.`,
-        });
+          type: 'error',
+          message:
+            '로그인에 실패했어요. 아직 DB에 추가되지 않았거나 존재하지 않는 이름이에요.'
+        })
       }
     }
-  };
+  }
 
   return (
     <div className="py-24 md:py-10 my-5 rounded-xl bg-white shadow-xl md:shadow-none flex flex-col justify-center items-center w-2/5 md:w-4/5 mx-auto">
@@ -67,8 +69,10 @@ export default function SignUp() {
             id="username"
             className="bg-gray-50 border border-gray-300 text-gray-900 md:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
             placeholder="표준성"
-            value={username || ""}
-            onChange={(e) => setUsername(e.target.value)}
+            value={username || ''}
+            onChange={(e) => {
+              setUsername(e.target.value)
+            }}
           />
         </div>
         <div>
@@ -84,13 +88,15 @@ export default function SignUp() {
             id="password"
             className="bg-gray-50 border border-gray-300 text-gray-900 md:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
             placeholder="9868"
-            value={password || ""}
-            onChange={(e) => setPassword(e.target.value)}
+            value={password || ''}
+            onChange={(e) => {
+              setPassword(e.target.value)
+            }}
           />
         </div>
         <button
           type="submit"
-          onClick={handleSubmit}
+          onClick={() => handleSubmit}
           className="w-full text-black"
         >
           로그인
@@ -102,5 +108,5 @@ export default function SignUp() {
         </p>
       </div>
     </div>
-  );
+  )
 }
