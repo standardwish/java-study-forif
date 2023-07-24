@@ -54,9 +54,9 @@ export default function SignUp() {
   };
 
   return (
-    <div className="py-24 md:py-10 my-5 rounded-xl bg-white shadow-xl md:shadow-none flex flex-col justify-center items-center w-2/5 md:w-4/5 mx-auto">
+    <div className="py-24 my-20 md:py-10 rounded-xl bg-white shadow-xl md:shadow-none flex flex-col justify-center items-center w-2/5 md:w-4/5 mx-auto">
       <div className="space-y-4 flex flex-col justify-center items-center mb-6">
-        <Forif />
+        <Forif darkMode={false} />
         <h2 className="text-2xl text-cyan-900 font-bold">로그인하기</h2>
       </div>
       <form className="flex flex-col gap-8 w-full px-8" action="#">

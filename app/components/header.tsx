@@ -2,17 +2,18 @@
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import ExpandArrow from "./icons/arrow_expand";
 import ShrinkArrow from "./icons/arrow_less";
 import Forif from "./icons/forif";
 import NavIcon from "./icons/nav_logo";
-export default function Header() {
+
+function HeaderPage() {
   const pathname = usePathname();
   const [assign, setAssign] = useState(false);
   const [show, setShow] = useState(false);
   const [detail, showDetail] = useState(false);
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const onShow = () => {
     if (show) {
       setShow(false);
@@ -27,7 +28,6 @@ export default function Header() {
       <nav className="flex flex-row gap-5 text-sm md:hidden">
         <div className="inline-block">
           <button
-            className=""
             onClick={() => {
               setAssign(!assign);
             }}
@@ -36,7 +36,7 @@ export default function Header() {
               className={
                 pathname === "/assignment"
                   ? "underline underline-offset-2 decoration-2 decoration-gray-400 transition-all duration-200 flex flex-row gap-0 items-center justify-center transition ease-in-out"
-                  : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p flex flex-row gap-0 items-center justify-center transition"
+                  : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p flex flex-row gap-0 items-center justify-center transition "
               }
             >
               과제
@@ -165,19 +165,23 @@ export default function Header() {
             </span>
           </a>
         )}
-        {session ? (
+        {status === "loading" ? (
+          <a className="flex flex-row gap-0 items-center justify-center transition ease-in-out delay-150">
+            <span>로딩 중...</span>
+          </a>
+        ) : status === "authenticated" ? (
           <Link
             href="/auth/mypage"
-            className="flex flex-row gap-0 items-center justify-center transition ease-in-out delay-150 md:hidden"
+            className="flex flex-row gap-0 items-center justify-center transition ease-in-out delay-150"
           >
             <span
               className={
                 pathname === "/auth/mypage"
                   ? "underline underline-offset-2 decoration-2 decoration-gray-400 transition-all duration-200"
-                  : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out"
+                  : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p"
               }
             >
-              마이페이지
+              내 정보
             </span>
           </Link>
         ) : (
@@ -271,14 +275,23 @@ export default function Header() {
               <li>스터디 운영 방식</li>
             </Link>
             <hr className="bg-black mr-5" />
-            {session ? (
+            {status === "loading" ? (
               <Link
                 href="/auth/mypage"
                 onClick={() => {
                   setShow(false);
                 }}
               >
-                <li>마이페이지</li>
+                <li>로딩중...</li>
+              </Link>
+            ) : status === "authenticated" ? (
+              <Link
+                href="/auth/signin"
+                onClick={() => {
+                  setShow(false);
+                }}
+              >
+                <li>내 정보</li>
               </Link>
             ) : (
               <Link
@@ -294,5 +307,13 @@ export default function Header() {
         </div>
       )}
     </header>
+  );
+}
+
+export default function Header() {
+  return (
+    <Suspense>
+      <HeaderPage />
+    </Suspense>
   );
 }
