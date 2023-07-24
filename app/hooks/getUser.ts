@@ -15,7 +15,7 @@ export const getAllUsers = async () => {
       console.log(res);
 
       console.log("Get All Users Data", res.status);
-      return res.json();
+      return await res.json();
     }
   } catch (error) {
     if (axios.isAxiosError(error)) {
