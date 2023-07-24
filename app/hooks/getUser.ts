@@ -10,10 +10,11 @@ const LOCAL_URI = "http://localhost:3000/api/users";
 export const getAllUsers = async () => {
   const URI = `${process.env.NEXTAUTH_URL}/api/users`;
   try {
-    const res = await axios.get(URI!);
-    console.log("Get All Users Data", res.status);
-
-    return res.data;
+    if (typeof URI === "string") {
+      const res = await axios.get(URI);
+      console.log("Get All Users Data", res.status);
+      return res.data;
+    }
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log("GOT ERROR WHEN LOAD DATA : ", error);
