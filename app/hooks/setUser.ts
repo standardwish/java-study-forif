@@ -6,6 +6,8 @@ export const loginUser = async ({ username, password }: LoginUserParams) => {
     username,
     password,
   });
+  console.log(res?.error, res?.status, res?.ok, res?.url);
+
   return res;
 };
 

@@ -8,20 +8,15 @@ const LOCAL_URI = "http://localhost:3000/api/users";
  * @returns 유저정보
  */
 export const getAllUsers = async () => {
+  const URI = `${process.env.NEXTAUTH_URL}/api/users`;
   try {
-    if (process.env.NODE_ENV === "development") {
-      const res = await axios.get(LOCAL_URI);
-      console.log(res);
+    const res = await axios.get(URI);
+    console.log("Get All Users Data", res.status);
 
-      return res.data;
-    } else if (process.env.NODE_ENV === "production") {
-      const res = await axios.get(AUTH_URI);
-      console.log(res);
-
-      return res.data;
-    }
+    return res.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
+      console.log("GOT ERROR WHEN LOAD DATA : ", error);
       return axios.isAxiosError(error);
     }
   }

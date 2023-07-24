@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={NotoSansKR.className}>
+      <body className={NotoSansKR.className ? NotoSansKR.className : ""}>
         <AuthSession>
           <Toast />
           <Header />
