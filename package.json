@@ -43,6 +43,9 @@
     "eslint-plugin-react": "^7.33.0",
     "typescript": "^5.1.6"
   },
+  "browser": {
+    "crypto": false
+  },
   "eslintIgnore": [
     "postcss.config.js",
     "tailwind.config.js",
