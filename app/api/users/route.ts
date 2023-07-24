@@ -2,8 +2,6 @@ import connectMongoDB from "@/lib/mongodb";
 import Users from "@/models/users";
 import { NextResponse } from "next/server";
 
-export const runtime = "edge";
-
 export async function POST(request: any) {
   const { username, password, major, assignment } = await request.json();
   await connectMongoDB();

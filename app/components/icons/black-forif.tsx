@@ -1,4 +1,4 @@
-const Forif = () => (
+const BlackForif = () => (
   <svg
     width="50"
     height="50"
@@ -14,4 +14,4 @@ const Forif = () => (
   </svg>
 );
 
-export default Forif;
+export default BlackForif;

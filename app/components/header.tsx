@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import { Suspense, useState } from "react";
 import ExpandArrow from "./icons/arrow_expand";
 import ShrinkArrow from "./icons/arrow_less";
-import Forif from "./icons/forif";
 import NavIcon from "./icons/nav_logo";
+import WhiteForif from "./icons/white-forif";
 
 function HeaderPage() {
   const pathname = usePathname();
@@ -23,7 +23,7 @@ function HeaderPage() {
   return (
     <header className="flex flex-row justify-between items-center h-20 px-8 bg-black text-white">
       <a href="/">
-        <Forif />
+        <WhiteForif />
       </a>
       <nav className="flex flex-row gap-5 text-sm md:hidden">
         <div className="inline-block">
@@ -47,7 +47,7 @@ function HeaderPage() {
             <ul className="border-2 rounded-md border-gray-100 absolute top-16 flex flex-col gap-3 bg-white text-black w-44 py-2 pl-4 z-50">
               <Link
                 href="/assignment"
-                className="hover:text-blue-500"
+                className="hover:font-bold"
                 onClick={() => {
                   setAssign(false);
                 }}
@@ -62,7 +62,7 @@ function HeaderPage() {
               {session ? (
                 <Link
                   href="/assignment/submit"
-                  className="hover:text-blue-500"
+                  className="hover:font-bold"
                   onClick={() => {
                     setAssign(false);
                   }}
@@ -92,7 +92,7 @@ function HeaderPage() {
               {session ? (
                 <Link
                   href="/assignment/submit"
-                  className="hover:text-blue-500"
+                  className="hover:font-bold"
                   onClick={() => {
                     setAssign(false);
                   }}
@@ -110,7 +110,7 @@ function HeaderPage() {
               )}
               <Link
                 href="/errors"
-                className="hover:text-blue-500"
+                className="hover:font-bold"
                 onClick={() => {
                   setAssign(false);
                 }}

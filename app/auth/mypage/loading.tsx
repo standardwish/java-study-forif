@@ -1,6 +1,6 @@
-import Forif from '@/app/components/icons/forif'
-import Spinner from '@/app/components/loading/Spinner'
-export default function Page () {
+import Forif from "@/app/components/icons/black-forif";
+import Spinner from "@/app/components/loading/Spinner";
+export default function Page() {
   return (
     <div className="bg-slate-50 py-20">
       <div className="opacity-10 py-14 rounded-xl bg-white shadow-xl md:shadow-none flex flex-col justify-center items-center w-2/5 md:w-4/5 mx-auto">
@@ -46,5 +46,5 @@ export default function Page () {
       </div>
       <Spinner />
     </div>
-  )
+  );
 }

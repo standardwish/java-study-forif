@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import Forif from "../../components/icons/forif";
+import Forif from "../../components/icons/black-forif";
 import { showToast } from "../../components/toast/toast";
 import { loginUser } from "../../hooks/setUser";
 export default function SignUp() {
