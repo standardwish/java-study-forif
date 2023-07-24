@@ -13,11 +13,6 @@ export default function Loading() {
             </p>
           </button>
         </div>
-        <iframe
-          width="560"
-          height="315"
-          className="border-2 border-black rounded-xl animate-fadein mt-24 md:mt-12 mr-10 md:w-5/6 w-2/5 h-2/4 md:h-1/4"
-        ></iframe>
       </div>
       <Spinner />
     </div>

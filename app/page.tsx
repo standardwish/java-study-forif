@@ -43,14 +43,6 @@ function MainPage() {
             </button>
           )}
         </div>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/l9AzO1FMgM8"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          className="border-2 border-black rounded-xl animate-fadein mt-24 md:mt-12 mr-10 md:w-5/6 w-2/5 h-2/4 md:h-1/4"
-        ></iframe>
       </div>
     </div>
   );
