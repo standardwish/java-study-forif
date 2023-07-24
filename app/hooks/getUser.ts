@@ -11,11 +11,9 @@ export const getAllUsers = async () => {
   const URI = `${process.env.NEXTAUTH_URL}/api/users`;
   try {
     if (typeof URI === "string") {
-      const res = await fetch(URI);
-      console.log(res);
-
+      const res = await axios.get(URI);
       console.log("Get All Users Data", res.status);
-      return await res.json();
+      return res.data;
     }
   } catch (error) {
     if (axios.isAxiosError(error)) {
