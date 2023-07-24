@@ -12,6 +12,8 @@ export const getAllUsers = async () => {
   try {
     if (typeof URI === "string") {
       const res = await fetch(URI);
+      console.log(res);
+
       console.log("Get All Users Data", res.status);
       return res.json();
     }
