@@ -4,6 +4,8 @@ import { type IUser } from "@/types/type";
 import NextAuth, { type NextAuthOptions } from "next-auth";
 import CredentialProvider from "next-auth/providers/credentials";
 
+export const runtime = "edge";
+
 const options: NextAuthOptions = {
   providers: [
     CredentialProvider({
