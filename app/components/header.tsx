@@ -40,13 +40,7 @@ function HeaderPage() {
               }
             >
               과제
-              <div>
-                {assign ? (
-                  <ShrinkArrow darkMode={true} />
-                ) : (
-                  <ExpandArrow darkMode={true} />
-                )}
-              </div>
+              <div>{assign ? <ShrinkArrow /> : <ExpandArrow />}</div>
             </span>
           </button>
           {assign && (
@@ -223,11 +217,7 @@ function HeaderPage() {
                 }}
               >
                 과제
-                {detail ? (
-                  <ShrinkArrow darkMode={true} />
-                ) : (
-                  <ExpandArrow darkMode={true} />
-                )}
+                {detail ? <ShrinkArrow /> : <ExpandArrow />}
               </button>
               {detail && (
                 <ul className="flex flex-col gap-2 mt-4 animate-dropdown_down relative">

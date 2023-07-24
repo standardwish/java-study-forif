@@ -9,7 +9,7 @@ const useTypingWords = (completWords: string, delay: number) => {
       if (words.length === completWords.length) return;
 
       setWords((prevWord) => {
-        let nextWord = prevWord
+        const nextWord = prevWord
           ? prevWord + completWords[count]
           : completWords[0];
         setCount(count + 1);

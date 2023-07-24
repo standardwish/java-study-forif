@@ -1,12 +1,10 @@
-import { IconMode } from "@/types/type";
-
-const ExpandArrow = ({ darkMode }: IconMode) => (
+const ExpandArrow = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     height="30"
     viewBox="0 -960 960 960"
     width="30"
-    className={darkMode ? "fill-white" : ""}
+    className="fill-white"
   >
     <path d="M480-345 240-585l43-43 197 198 197-197 43 43-240 239Z" />
   </svg>
