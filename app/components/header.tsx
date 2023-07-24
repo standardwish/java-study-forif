@@ -23,7 +23,7 @@ function HeaderPage() {
   return (
     <header className="flex flex-row justify-between items-center h-20 px-8 bg-black text-white">
       <a href="/">
-        <Forif darkMode={true} />
+        <Forif />
       </a>
       <nav className="flex flex-row gap-5 text-sm md:hidden">
         <div className="inline-block">
