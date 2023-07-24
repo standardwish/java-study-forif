@@ -30,7 +30,7 @@ const AuthPage = () => {
         <div className="relative animate-fadein">
           <h1>포리프 자바 스터디</h1>
           <Link href="/">
-            <Notification darkMode={true} />
+            <Notification />
           </Link>
           <h1 className="text-2xl">
             {useTypingWords(`환영해요, ${session?.user.username}님.`, 100)}
