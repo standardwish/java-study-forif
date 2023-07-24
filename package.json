@@ -14,9 +14,9 @@
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
+    "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
     "encoding": "^0.1.13",
-    "eslint": "8.45.0",
     "eslint-config-next": "13.4.10",
     "mongodb": "^5.7.0",
     "mongoose": "^7.4.0",
@@ -28,12 +28,27 @@
     "react-query": "^3.39.3",
     "react-syntax-highlighter": "^15.5.0",
     "react-toastify": "^9.1.3",
-    "tailwindcss": "3.3.3",
-    "typescript": "5.1.6"
+    "tailwindcss": "3.3.3"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/react-highlight": "^0.12.5",
-    "@types/react-syntax-highlighter": "^15.5.7"
-  }
+    "@types/react-syntax-highlighter": "^15.5.7",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "eslint": "^8.45.0",
+    "eslint-config-standard-with-typescript": "^37.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^16.0.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.33.0",
+    "typescript": "^5.1.6"
+  },
+  "eslintIgnore": [
+    "postcss.config.js",
+    "tailwind.config.js",
+    "next.config.js",
+    "*.ico",
+    "*.css",
+    "*.svg"
+  ]
 }

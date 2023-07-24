@@ -8,7 +8,6 @@ function Study() {
   const clickedToggle = () => {
     setToggle((prev) => !prev);
   };
-  console.log(toggle);
 
   return (
     <div className="overflow-hidden">

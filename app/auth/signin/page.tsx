@@ -21,6 +21,7 @@ export default function SignUp() {
     } else {
       try {
         const loginRes = await loginUser({ username, password });
+
         if (loginRes?.error === null) {
           router.push("/");
           showToast({
@@ -30,18 +31,22 @@ export default function SignUp() {
         } else if (loginRes?.error === "Password InCorrect Credentials") {
           showToast({
             type: "error",
-            message: `비밀번호가 맞지 않아요. 비밀번호는 휴대전화 뒷 4자리에요.`,
+            message:
+              "비밀번호가 맞지 않아요. 비밀번호는 휴대전화 뒷 4자리에요.",
           });
         } else if (loginRes?.error === "No User Credentials") {
           showToast({
             type: "error",
-            message: `데이터베이스에 해당하는 유저가 없어요.`,
+            message: "데이터베이스에 해당하는 유저가 없어요.",
           });
         }
       } catch (error) {
+        console.log(error);
+
         showToast({
           type: "error",
-          message: `로그인에 실패했어요. 아직 DB에 추가되지 않았거나 존재하지 않는 이름이에요.`,
+          message:
+            "로그인에 실패했어요. 아직 DB에 추가되지 않았거나 존재하지 않는 이름이에요.",
         });
       }
     }
@@ -68,7 +73,9 @@ export default function SignUp() {
             className="bg-gray-50 border border-gray-300 text-gray-900 md:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
             placeholder="표준성"
             value={username || ""}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
           />
         </div>
         <div>
@@ -85,7 +92,9 @@ export default function SignUp() {
             className="bg-gray-50 border border-gray-300 text-gray-900 md:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
             placeholder="9868"
             value={password || ""}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           />
         </div>
         <button

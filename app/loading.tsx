@@ -1,6 +1,6 @@
-import Spinner from "./components/loading/Spinner";
+import Spinner from './components/loading/Spinner'
 
-export default function Loading() {
+export default function Loading () {
   return (
     <div>
       <div className="pl-8 bg-[url('/images/main-bg-img.webp')] bg-cover w-full h-screen bg-center bg-fixed main-bg-img flex md:flex-col flex-row justify-between md:justify-normal opacity-10">
@@ -16,5 +16,5 @@ export default function Loading() {
       </div>
       <Spinner />
     </div>
-  );
+  )
 }

@@ -8,6 +8,6 @@ const ExpandArrow = () => (
   >
     <path d="M480-345 240-585l43-43 197 198 197-197 43 43-240 239Z" />
   </svg>
-);
+)
 
-export default ExpandArrow;
+export default ExpandArrow

@@ -1,7 +1,7 @@
 import connectMongoDB from "@/lib/mongodb";
 import users from "@/models/users";
-import { IUser } from "@/types/type";
-import NextAuth, { NextAuthOptions } from "next-auth";
+import { type IUser } from "@/types/type";
+import NextAuth, { type NextAuthOptions } from "next-auth";
 import CredentialProvider from "next-auth/providers/credentials";
 
 const options: NextAuthOptions = {

@@ -15,7 +15,7 @@ public class People {
           return "이름은 " + name +" 나이는 " + age + "살, 키는 " + height + "입니다.";
       }
 }
-`;
+`
 export const assignment2 = `package week2;
 
 public class hw2 {
@@ -59,7 +59,7 @@ public class hw2 {
         account.withdraw(5000);
         System.out.println(account.getBalance());
     }
-}`;
+}`
 export const assignment3 = `package week2;
 
 public class Account {
@@ -84,4 +84,4 @@ public class Account {
     public void withdraw(int money) {
         this.money -= money;
     }
-}`;
+}`

@@ -1,10 +1,10 @@
-import getDate from "@/lib/getDate";
-import { usersLoadingData } from "@/loadingData/userData";
-import Spinner from "../components/loading/Spinner";
+import getDate from '@/lib/getDate'
+import { usersLoadingData } from '@/loadingData/userData'
+import Spinner from '../components/loading/Spinner'
 
-export default function Loading() {
+export default function Loading () {
   // You can add any UI inside Loading, including a Skeleton.
-  const date = getDate(new Date());
+  const date = getDate(new Date())
   return (
     <>
       <div className="max-w-6xl mx-auto mt-5 opacity-10">
@@ -30,7 +30,7 @@ export default function Loading() {
               </tr>
             </thead>
             <tbody>
-              {usersLoadingData["users"].map((user: any) => (
+              {usersLoadingData.users.map((user: any) => (
                 <tr
                   className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
                   key={user._id}
@@ -43,11 +43,7 @@ export default function Loading() {
                   </th>
                   <td className="px-6 py-4">{user.major}</td>
                   <td className="px-6 py-4">
-                    {true ? (
-                      <p className="text-blue-400">출석</p>
-                    ) : (
-                      <p className="text-red-400">결석</p>
-                    )}
+                    <p className="text-blue-400">출석</p>
                   </td>
                   <td className="px-6 py-4">{user.assignment}</td>
                 </tr>
@@ -58,5 +54,5 @@ export default function Loading() {
       </div>
       <Spinner />
     </>
-  );
+  )
 }

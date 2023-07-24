@@ -1,4 +1,4 @@
-export default function Spinner() {
+export default function Spinner () {
   return (
     <div className="absolute left-1/2 top-1/2" role="status">
       <svg
@@ -18,5 +18,5 @@ export default function Spinner() {
         />
       </svg>
     </div>
-  );
+  )
 }

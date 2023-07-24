@@ -1,23 +1,15 @@
-import { UsersType } from "@/types/type";
-import { Suspense } from "react";
-import Loading from "./loading";
 import getDate from "@/lib/getDate";
-
-const getUsers = async () => {
-  try {
-    const res = await fetch("http://localhost:3000/api/users", {
-      cache: "no-store",
-    });
-
-    return res.json();
-  } catch (error) {
-    console.log(error);
-  }
-};
+import { type UsersType } from "@/types/type";
+import { Suspense } from "react";
+import { getAllUsers } from "../hooks/getUser";
+import Loading from "./loading";
 
 async function ListMember() {
   const date = getDate(new Date());
-  const { users }: UsersType = await getUsers();
+  const { users }: UsersType = await getAllUsers();
+
+  const isAttend = true;
+
   return (
     <div className="max-w-6xl mx-auto mt-5">
       <h1 className="text-center">{date}</h1>
@@ -55,7 +47,7 @@ async function ListMember() {
                 </th>
                 <td className="px-6 py-4">{user.major}</td>
                 <td className="px-6 py-4">
-                  {true ? (
+                  {isAttend ? (
                     <p className="text-blue-400">출석</p>
                   ) : (
                     <p className="text-red-400">결석</p>

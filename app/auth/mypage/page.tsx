@@ -1,24 +1,23 @@
-"use client";
-import Forif from "@/app/components/icons/forif";
-import { showToast } from "@/app/components/toast/toast";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { logOutUser } from "../../hooks/setUser";
-import Link from "next/link";
-export default function Page() {
-  const router = useRouter();
-  const { data: session, status } = useSession();
-  console.log(status);
+'use client'
+import Forif from '@/app/components/icons/forif'
+import { showToast } from '@/app/components/toast/toast'
+import { useSession } from 'next-auth/react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { logOutUser } from '../../hooks/setUser'
+export default function Page () {
+  const router = useRouter()
+  const { data: session } = useSession()
 
   const logout = () => {
-    logOutUser();
-    router.refresh();
-    router.push("/");
+    logOutUser()
+    router.refresh()
+    router.push('/')
     showToast({
-      type: "success",
-      message: "로그아웃에 성공했습니다",
-    });
-  };
+      type: 'success',
+      message: '로그아웃에 성공했습니다'
+    })
+  }
 
   return (
     <div className="bg-slate-50 py-20">
@@ -69,5 +68,5 @@ export default function Page() {
         </div>
       </div>
     </div>
-  );
+  )
 }

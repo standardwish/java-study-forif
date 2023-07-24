@@ -1,7 +1,7 @@
-import ExpandArrow from "@/app/components/icons/arrow_expand";
-import Spinner from "@/app/components/loading/Spinner";
-import Image from "next/image";
-export default function Page() {
+import ExpandArrow from '@/app/components/icons/arrow_expand'
+import Spinner from '@/app/components/loading/Spinner'
+import Image from 'next/image'
+export default function Page () {
   return (
     <>
       <div className="max-w-5xl mb-3 mx-auto mt-10 md:mt-5 md:ml-3 scroll-smooth opacity-10 h-screen">
@@ -28,5 +28,5 @@ export default function Page() {
       </div>
       <Spinner />
     </>
-  );
+  )
 }
