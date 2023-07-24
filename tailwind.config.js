@@ -25,7 +25,7 @@ module.exports = {
     },
     backgroundImage: {
       link_i:
-        "linear-gradient(transparent, transparent), linear-gradient(black, black)",
+        "linear-gradient(transparent, transparent), linear-gradient(white, white)",
     },
     transitionProperty: {
       backgroundSize: "background-size",
@@ -72,7 +72,11 @@ module.exports = {
         dropdown_up: "dropdown_up 0.5s ease",
         line: "line 1s ease-in-out",
       },
+      transitionProperty: {
+        height: "height",
+      },
     },
   },
+  mode: "jit",
   plugins: [],
 };

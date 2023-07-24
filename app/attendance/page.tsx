@@ -1,7 +1,7 @@
 import getDate from "@/lib/getDate";
 import { type UsersType } from "@/types/type";
 import { Suspense } from "react";
-import { getAllUsers } from "../hooks/getUser";
+import { getAllUsers } from "../hooks/getAllUsers";
 import Loading from "./loading";
 
 async function ListMember() {

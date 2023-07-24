@@ -30,3 +30,7 @@ export interface LoginUserParams {
   username: string;
   password: string;
 }
+
+export interface IconMode {
+  darkMode: boolean;
+}

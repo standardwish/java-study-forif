@@ -1,45 +1,29 @@
 "use client";
-import Link from "next/link";
-import ForwardArrow from "./components/icons/arrow_forward";
 import { useSession } from "next-auth/react";
 import { Suspense } from "react";
+import { UbunTu } from "./fonts";
 import Loading from "./loading";
+import useTypingWords from "./components/animation/typing";
 
 function MainPage() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  const title = "It's Time<br/>To</br>Learn Java";
+  console.log(session, status);
+
   return (
-    <div>
-      <div className="pl-8 bg-[url('/images/main-bg-img.webp')] bg-cover w-full h-screen bg-center bg-fixed main-bg-img flex md:flex-col flex-row justify-between md:justify-normal">
-        <div className="pt-24 md:pt-12 flex flex-col gap-6 w-2/5 md:w-full break-keep animate-fadein">
-          <h1 className="text-6xl md:text-4xl">
-            자바 공부를 시작하는 가장 뛰어난 방법
+    <div className="bg-black bg-fixed w-full scroll-smooth">
+      <div className=" text-white mx-auto w-2/3">
+        <div className="text-8xl md:text-4xl leading-normal text-center items-center flex justify-center font-bold h-screen mt-[-5rem]">
+          <h1 className={UbunTu.className}>
+            {useTypingWords("It's Time", 100)}
+            <br />
+            {useTypingWords("To", 150)}
+            <br />
+            Learn <span className="text-red-500">Java</span>
           </h1>
-          <p className="text-base">
-            질 좋은 강의자료와 과제, 그리고 편리한 과제 제출 시스템까지.포리프
-            자바 스터디에서 빠르고 정확하게 자바를 배워보세요.
-          </p>
-          {session ? (
-            <button className="w-60 h-14 border-2 rounded-md border-blue-600 bg-blue-600 text-white">
-              <Link
-                href="https://galmaehs.notion.site/Catching-Java-f4c0fbad87844db2b408f13a0e4e973b?pvs=4"
-                className="flex flex-row gap-5 items-center justify-center"
-                target="_blank"
-              >
-                이번 주 과제 제출하기
-              </Link>
-            </button>
-          ) : (
-            <button className="w-60 h-14 border-2 rounded-md border-blue-600 bg-blue-600 text-white">
-              <Link
-                href="https://galmaehs.notion.site/Catching-Java-f4c0fbad87844db2b408f13a0e4e973b?pvs=4"
-                className="flex flex-row gap-5 items-center justify-center"
-                target="_blank"
-              >
-                신청하기
-                <ForwardArrow />
-              </Link>
-            </button>
-          )}
+        </div>
+        <div>
+          <h1 className="h-20">asas</h1>
         </div>
       </div>
     </div>

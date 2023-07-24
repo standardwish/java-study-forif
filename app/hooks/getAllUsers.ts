@@ -1,7 +1,5 @@
 import axios from "axios";
 
-const AUTH_URI = "https://java-study-forif.vercel.app/api/users";
-const LOCAL_URI = "http://localhost:3000/api/users";
 /**
  * 모든 유저 정보 반환
  * @param 모든 유저의 이름/학과/과제 수행 횟수

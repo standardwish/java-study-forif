@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import AuthSession from "./AuthSession";
-import Footer from "./components/footer";
 import Header from "./components/header";
 import { Toast } from "./components/toast/toast";
 import { NotoSansKR } from "./fonts";
@@ -27,7 +26,6 @@ export default function RootLayout({
           <Toast />
           <Header />
           {children}
-          <Footer />
         </AuthSession>
       </body>
     </html>
