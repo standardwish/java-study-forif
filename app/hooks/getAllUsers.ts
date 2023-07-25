@@ -15,7 +15,8 @@ export const getAllUsers = async () => {
     }
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      console.log("GOT ERROR WHEN LOAD DATA : ", error);
+      console.log(`GOT ERROR IN  : ${URI}`);
+      console.log(error);
       return axios.isAxiosError(error);
     }
   }
