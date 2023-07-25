@@ -19,7 +19,6 @@ export default function SignUp() {
         message: "이름과 비밀번호를 모두 입력해주세요.",
       });
     } else {
-      console.log(`아이디 : ${username}, 비밀번호 : ${password}`);
       try {
         const loginRes = await loginUser({ username, password });
 

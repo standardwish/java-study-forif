@@ -45,7 +45,6 @@ const AuthPage = () => {
 
 function MainPage() {
   const { data: session, status } = useSession();
-  console.log(status);
 
   useEffect(() => {
     window.scrollTo(0, 0);

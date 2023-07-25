@@ -7,7 +7,6 @@ const connectMongoDB = async () => {
   try {
     if (typeof uri === "string") {
       mongoose.connect(uri);
-      console.log("MONGODB ACCESSED");
     }
   } catch (e) {
     console.log(e);
