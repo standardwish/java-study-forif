@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const assignment1 = `package week2;
 public class People {
       private String name;
@@ -89,13 +90,11 @@ public class Account {
 export const mainCode = `int even = 0;
 int odd = 0;
 for(int i = 1; i <= 10; i++) {
-	if(i % 2 == 0) {
+    if(i % 2 == 0) {
 		even++;
 	} else {
 		odd++;	
 	}
 }
 printf("Even : %d, Odd : %d", even, odd);
-
-
 `;
