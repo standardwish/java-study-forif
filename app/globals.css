@@ -10,3 +10,7 @@ body {
 .main-bg-img {
   height: calc(100vh - 5rem);
 }
+
+html {
+  scroll-behavior: smooth;
+}

@@ -21,7 +21,7 @@ function HeaderPage() {
   };
 
   return (
-    <header className="flex flex-row justify-between items-center h-20 px-8 bg-black text-white">
+    <header className="flex flex-row justify-between items-center h-20 px-8 bg-black text-white sticky top-0">
       <a href="/">
         <WhiteForif />
       </a>
@@ -91,7 +91,7 @@ function HeaderPage() {
               </li>
               {session ? (
                 <Link
-                  href="/assignment/submit"
+                  href="/assignment/solution"
                   className="hover:font-bold"
                   onClick={() => {
                     setAssign(false);
@@ -99,7 +99,7 @@ function HeaderPage() {
                 >
                   <li
                     className={
-                      pathname === "/assignment/submit" ? "text-red-500" : ""
+                      pathname === "/assignment/solution" ? "text-red-500" : ""
                     }
                   >
                     솔루션 보기
@@ -109,13 +109,17 @@ function HeaderPage() {
                 <a className="cursor-not-allowed opacity-50">솔루션 보기</a>
               )}
               <Link
-                href="/errors"
+                href="/assignment/errors"
                 className="hover:font-bold"
                 onClick={() => {
                   setAssign(false);
                 }}
               >
-                <li className={pathname === "/errors" ? "text-red-500" : ""}>
+                <li
+                  className={
+                    pathname === "/assignment/errors" ? "text-red-500" : ""
+                  }
+                >
                   자주 발생하는 에러
                 </li>
               </Link>

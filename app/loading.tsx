@@ -1,7 +1,5 @@
-import Link from "next/link";
 import Spinner from "./components/loading/Spinner";
 import { UbunTu } from "./fonts";
-import Notification from "./components/icons/notification";
 
 export default function Loading() {
   return (
