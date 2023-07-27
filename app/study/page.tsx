@@ -24,7 +24,7 @@ function Study() {
             className="sr-only peer"
             onClick={clickedToggle}
           />
-          <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+          <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
           <span className="ml-3 text-base font-medium text-gray-900 dark:text-gray-300">
             {toggle ? "오프라인" : "온라인"} 과정
           </span>
@@ -68,7 +68,7 @@ function Study() {
         </a>
         {toggle ? (
           <div className="flex flex-col gap-0 w-1/2 md:w-full transition-all duration-300">
-            <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 md:py-3 md:pl-2 transition ease-in-out hover:scale-110 bg-white duration-300">
+            <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 md:py-3 md:pl-2 transition ease-in-out hover:scale-110 duration-300">
               <div className="flex flex-row justify-between mb-8 md:mb-4">
                 <button className="rounded-lg bg-black text-white px-2 text-xl">
                   01
@@ -89,7 +89,7 @@ function Study() {
                 소요됩니다.
               </p>
             </div>
-            <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 md:py-3 md:pl-2 transition ease-in-out hover:scale-110 bg-white duration-300">
+            <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 md:py-3 md:pl-2 transition ease-in-out hover:scale-110 duration-300">
               <div className="flex flex-row justify-between mb-8 md:mb-4">
                 <button className="rounded-lg bg-black text-white px-2 text-xl">
                   02
@@ -109,7 +109,7 @@ function Study() {
                 진행합니다. <strong>50분</strong> 정도 소요됩니다.
               </p>
             </div>
-            <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 md:py-3 md:pl-2 transition ease-in-out hover:scale-110 bg-white duration-300">
+            <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 md:py-3 md:pl-2 transition ease-in-out hover:scale-110 duration-300">
               <div className="flex flex-row justify-between mb-8 md:mb-4">
                 <button className="rounded-lg bg-black text-white px-2 text-xl">
                   03
@@ -134,7 +134,7 @@ function Study() {
           </div>
         ) : (
           <div className="flex flex-col gap-0 w-1/2 md:w-full">
-            <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 md:py-3 md:pl-2 transition ease-in-out hover:scale-110 bg-white duration-300">
+            <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 md:py-3 md:pl-2 transition ease-in-out hover:scale-110 duration-300">
               <div className="flex flex-row justify-between mb-8 md:mb-4">
                 <button className="rounded-lg bg-black text-white px-2 text-xl">
                   01
@@ -156,7 +156,7 @@ function Study() {
                 과제는 한 번밖에 제출할 수 없습니다.
               </p>
             </div>
-            <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 md:py-3 md:pl-2 transition ease-in-out hover:scale-110 bg-white duration-300">
+            <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 md:py-3 md:pl-2 transition ease-in-out hover:scale-110 duration-300">
               <div className="flex flex-row justify-between mb-8 md:mb-4">
                 <button className="rounded-lg bg-black text-white px-2 text-xl">
                   02
@@ -176,7 +176,7 @@ function Study() {
                 상관없습니다! 질문 수령 후 빠른 시일 내에 답변을 드립니다.
               </p>
             </div>
-            <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 md:py-3 md:pl-2 transition ease-in-out hover:scale-110 bg-white duration-300">
+            <div className="w-full h-1/3 border-2 border-gray-400 pl-8 py-4 md:py-3 md:pl-2 transition ease-in-out hover:scale-110 duration-300">
               <div className="flex flex-row justify-between mb-8 md:mb-4">
                 <button className="rounded-lg bg-black text-white px-2 text-xl">
                   03

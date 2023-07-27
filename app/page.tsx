@@ -2,25 +2,24 @@
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect } from "react";
 import { Fade } from "react-awesome-reveal";
 import useTypingWords from "./components/animation/typing";
 import MainCode from "./components/codes/main";
 import Notification from "./components/icons/notification";
 import { NotoSansKR, UbunTu } from "./fonts";
 
+import { navState } from "@/recoil/store";
+import { useRecoilValue } from "recoil";
 import ScrollDown from "./components/icons/scroll_arrow_down";
 import ScrollUp from "./components/icons/scroll_arrow_up";
 import TerminalIcon from "./components/icons/terminal";
+
 import Loading from "./loading";
-import getScroll from "./hooks/getScrollPosition";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { navState } from "@/recoil/store";
+import useScroll from "./hooks/getScrollPosition";
 
 const UnAuthPage = () => {
-  const pos = getScroll();
-  const mainhDiv = document.getElementById("main");
-  const scrollHeight = mainhDiv?.scrollHeight;
+  const pos = useScroll();
 
   return (
     <div className={UbunTu.className}>
@@ -129,10 +128,10 @@ const UnAuthPage = () => {
 
 const AuthPage = () => {
   const { data: session } = useSession();
-  const pos = getScroll();
+  const pos = useScroll();
   return (
     <div className={UbunTu.className}>
-      <div className="relative text-8xl md:text-4xl leading-normal items-center flex flex-col justify-center font-bold h-screen pt-20">
+      <div className="relative text-8xl md:text-4xl leading-normal items-center flex flex-col justify-center font-bold h-screen pt-20 z-0">
         <div className="relative animate-fadein mt-[-15rem]">
           <h1>포리프 자바 스터디</h1>
           <Link href="/">

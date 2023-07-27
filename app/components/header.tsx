@@ -23,7 +23,7 @@ function HeaderPage() {
   };
 
   return (
-    <header className="flex flex-row justify-between items-center h-20 px-8 md:px-0 bg-black text-white sticky md:static top-0">
+    <header className="flex flex-row justify-between items-center h-20 px-8 md:px-0 bg-black text-white sticky md:static top-0 z-50">
       <a href="/" className="md:pl-4">
         <div className={isOpen ? "fixed top-4" : ""}>
           <WhiteForif />
@@ -153,12 +153,12 @@ function HeaderPage() {
         </Link>
         {session ? (
           <Link
-            href="/attendance"
+            href="/members"
             className="flex flex-row gap-0 items-center justify-center transition ease-in-out delay-150"
           >
             <span
               className={
-                pathname === "/attendance"
+                pathname === "/members"
                   ? "underline underline-offset-2 decoration-2 decoration-gray-400 transition-all duration-200"
                   : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p"
               }

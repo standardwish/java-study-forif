@@ -1,4 +1,4 @@
-import { ArrowProp } from "@/types/type";
+import type { ArrowProp } from "@/types/type";
 
 const ShrinkArrow = ({ classname }: ArrowProp) => (
   <svg

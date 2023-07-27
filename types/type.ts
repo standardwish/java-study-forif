@@ -19,11 +19,16 @@ export interface UserType {
 }
 
 export interface IUser {
-  _id: string;
+  _id?: string;
   username: string;
   password: string;
   major: string;
   assignment: string;
+}
+
+export interface IDeleteUser {
+  uid: string;
+  adminPassword: string;
 }
 
 export interface LoginUserParams {
