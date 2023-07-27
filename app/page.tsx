@@ -14,6 +14,8 @@ import ScrollUp from "./components/icons/scroll_arrow_up";
 import TerminalIcon from "./components/icons/terminal";
 import Loading from "./loading";
 import getScroll from "./hooks/getScrollPosition";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { navState } from "@/recoil/store";
 
 const UnAuthPage = () => {
   const pos = getScroll();
@@ -147,6 +149,7 @@ const AuthPage = () => {
 
 function MainPage() {
   const { data: session, status } = useSession();
+  const isNavOpen = useRecoilValue(navState);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -154,17 +157,19 @@ function MainPage() {
 
   return (
     <Suspense fallback={<Loading />}>
-      <div className="bg-black w-full" id="main">
-        <div className=" text-white mx-auto w-2/3">
-          {status === "loading" ? (
-            <Loading />
-          ) : status === "authenticated" ? (
-            <AuthPage />
-          ) : (
-            <UnAuthPage />
-          )}
+      {!isNavOpen && (
+        <div className="bg-black w-full" id="main">
+          <div className=" text-white mx-auto w-2/3">
+            {status === "loading" ? (
+              <Loading />
+            ) : status === "authenticated" ? (
+              <AuthPage />
+            ) : (
+              <UnAuthPage />
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </Suspense>
   );
 }

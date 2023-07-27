@@ -1,8 +1,10 @@
 "use client";
+import { navState } from "@/recoil/store";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Suspense, useState } from "react";
+import { useRecoilState } from "recoil";
 import ExpandArrow from "./icons/arrow_expand";
 import ShrinkArrow from "./icons/arrow_shrink";
 import NavIcon from "./icons/nav_logo";
@@ -11,18 +13,19 @@ import WhiteForif from "./icons/white-forif";
 function HeaderPage() {
   const pathname = usePathname();
   const [assign, setAssign] = useState(false);
-  const [show, setShow] = useState(false);
+  const [isOpen, setIsOpen] = useRecoilState(navState);
   const [detail, showDetail] = useState(false);
   const { data: session, status } = useSession();
+
   const onShow = () => {
-    setShow(!show);
+    setIsOpen(!isOpen);
     window.scrollTo(0, 0);
   };
 
   return (
-    <header className="flex flex-row justify-between items-center h-20 px-8 md:px-0 bg-black text-white sticky md:static top-0 md:w-screen md:z-50">
+    <header className="flex flex-row justify-between items-center h-20 px-8 md:px-0 bg-black text-white sticky md:static top-0">
       <a href="/" className="md:pl-4">
-        <div className={show ? "fixed top-4" : ""}>
+        <div className={isOpen ? "fixed top-4" : ""}>
           <WhiteForif />
         </div>
       </a>
@@ -209,13 +212,13 @@ function HeaderPage() {
 
       <div className="hidden md:block">
         <button className="mt-2" onClick={onShow}>
-          <div className={show ? "fixed right-3 top-6" : "pr-3 right-0"}>
+          <div className={isOpen ? "fixed right-3 top-6" : "pr-3 right-0"}>
             <NavIcon />
           </div>
         </button>
       </div>
-      {show && (
-        <nav className="top-20 bg-black w-full h-screen fixed scrollbar-hide z-50">
+      {isOpen && (
+        <nav className="top-20 bg-black w-full h-screen fixed z-50">
           <ul className="flex flex-col gap-9 text-base">
             <div className="ml-4 mt-5">
               <button
@@ -244,7 +247,7 @@ function HeaderPage() {
                     }
                     href="/assignment/submit"
                     onClick={() => {
-                      setShow(false);
+                      setIsOpen(false);
                     }}
                   >
                     <li>과제 제출</li>
@@ -257,7 +260,7 @@ function HeaderPage() {
                     }
                     href="/assignment/solution"
                     onClick={() => {
-                      setShow(false);
+                      setIsOpen(false);
                     }}
                   >
                     <li>솔루션 보기</li>
@@ -265,7 +268,7 @@ function HeaderPage() {
                   <Link
                     href="/assignment/errors"
                     onClick={() => {
-                      setShow(false);
+                      setIsOpen(false);
                     }}
                   >
                     <li>자주 발생하는 에러</li>
@@ -277,7 +280,7 @@ function HeaderPage() {
               href="/study"
               className="ml-4"
               onClick={() => {
-                setShow(false);
+                setIsOpen(false);
               }}
             >
               <li>스터디 운영 방식</li>
@@ -291,7 +294,7 @@ function HeaderPage() {
                   : "opacity-50 cursor-not-allowed ml-4"
               }
               onClick={() => {
-                setShow(false);
+                setIsOpen(false);
               }}
             >
               <li>멤버들</li>
@@ -306,7 +309,7 @@ function HeaderPage() {
                 href="/auth/signin"
                 className="ml-4"
                 onClick={() => {
-                  setShow(false);
+                  setIsOpen(false);
                 }}
               >
                 <li>내 정보</li>
@@ -316,7 +319,7 @@ function HeaderPage() {
                 href="/auth/signin"
                 className="ml-4"
                 onClick={() => {
-                  setShow(false);
+                  setIsOpen(false);
                 }}
               >
                 <li>로그인</li>

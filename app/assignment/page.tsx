@@ -1,11 +1,10 @@
 "use client";
-import Image from "next/image";
-import Description from "../components/problems/description";
-import Output from "../components/problems/output";
-import Name from "../components/problems/name";
-import ShrinkArrow from "../components/icons/arrow_shrink";
 import { useState } from "react";
 import ExpandArrow from "../components/icons/arrow_expand";
+import ShrinkArrow from "../components/icons/arrow_shrink";
+import Description from "../components/problems/description";
+import Name from "../components/problems/name";
+import Output from "../components/problems/output";
 export default function Page() {
   const [opens, setOpens]: any = useState({
     open1: false,
@@ -20,17 +19,8 @@ export default function Page() {
 
   const { open1, open2 } = opens;
   return (
-    <div className="max-w-5xl mb-3 mx-auto mt-10 md:mt-5 md:ml-3 flex flex-col justify-center items-center">
-      <div className="mb-5 flex flex-row gap-2 items-center justify-center">
-        <Image
-          src="/images/assignment.png"
-          width="45"
-          height="60"
-          alt="Assignment icon"
-          className="pt-1 md:w-10 md:h-12"
-        />
-        <h1 className="text-4xl font-bold md:text-3xl ">과제 보기</h1>
-      </div>
+    <div className="max-w-5xl mb-3 mx-auto mt-10 md:mt-5 md:ml-2 flex flex-col justify-center items-center">
+      <h1 className="text-4xl font-bold md:text-3xl mb-5">과제 보기</h1>
       <div className="flex flex-col justify-center items-center gap-5">
         <button
           className="text-2xl font-bold md:text-2xl flex flex-row"
@@ -40,9 +30,9 @@ export default function Page() {
         >
           자료형
           {open1 ? (
-            <ExpandArrow classname="fill-black" />
+            <ExpandArrow classname="fill-white" />
           ) : (
-            <ShrinkArrow classname="fill-black" />
+            <ShrinkArrow classname="fill-white" />
           )}
         </button>
         {open1 && (
@@ -87,9 +77,9 @@ export default function Page() {
         >
           자료형
           {open2 ? (
-            <ExpandArrow classname="fill-black" />
+            <ExpandArrow classname="fill-white" />
           ) : (
-            <ShrinkArrow classname="fill-black" />
+            <ShrinkArrow classname="fill-white" />
           )}
         </button>
         {open2 && (
@@ -133,7 +123,7 @@ export default function Page() {
           window.scroll(0, 0);
         }}
       >
-        <ShrinkArrow classname="fill-black" />
+        <ShrinkArrow classname="fill-white" />
       </button>
     </div>
   );
