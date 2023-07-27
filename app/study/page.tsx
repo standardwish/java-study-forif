@@ -14,7 +14,7 @@ function Study() {
       <div className="py-12 border-b-2 border-black pl-6">
         <h1 className="text-5xl animate-fadein">스터디 운영 방식</h1>
         <p className="text-base mt-4 animate-fadein">
-          자바 스터디는 온라인/오프라인으로 다음과 같이 운영됩니다.
+          자바 스터디는 다음과 같이 운영됩니다.
         </p>
 
         <label className="relative inline-flex items-center cursor-pointer mt-4">
@@ -193,7 +193,7 @@ function Study() {
               <h1 className="text-4xl md:text-2xl mb-3">General Errors</h1>
               <p className="text-2xl md:text-base">
                 과제와 자바에서 일반적으로 발생하는 오류를 정리해놓은
-                공간입니다. 오류의 의미가 해결 방안을 찾아보세요!
+                공간입니다. 오류의 의미와 해결 방안을 찾아보세요!
               </p>
             </div>
           </div>

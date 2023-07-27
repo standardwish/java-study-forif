@@ -78,5 +78,5 @@ module.exports = {
     },
   },
   mode: "jit",
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };

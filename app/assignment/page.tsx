@@ -1,24 +1,24 @@
-'use client'
-import Image from 'next/image'
-import Description from '../components/problems/description'
-import Output from '../components/problems/output'
-import Name from '../components/problems/name'
-import ShrinkArrow from '../components/icons/arrow_less'
-import { useState } from 'react'
-import ExpandArrow from '../components/icons/arrow_expand'
-export default function Page () {
+"use client";
+import Image from "next/image";
+import Description from "../components/problems/description";
+import Output from "../components/problems/output";
+import Name from "../components/problems/name";
+import ShrinkArrow from "../components/icons/arrow_shrink";
+import { useState } from "react";
+import ExpandArrow from "../components/icons/arrow_expand";
+export default function Page() {
   const [opens, setOpens]: any = useState({
     open1: false,
-    open2: false
-  })
+    open2: false,
+  });
   const onChange = (name: any) => {
     setOpens({
       ...opens,
-      [name]: !opens[name]
-    })
-  }
+      [name]: !opens[name],
+    });
+  };
 
-  const { open1, open2 } = opens
+  const { open1, open2 } = opens;
   return (
     <div className="max-w-5xl mb-3 mx-auto mt-10 md:mt-5 md:ml-3 flex flex-col justify-center items-center">
       <div className="mb-5 flex flex-row gap-2 items-center justify-center">
@@ -35,11 +35,15 @@ export default function Page () {
         <button
           className="text-2xl font-bold md:text-2xl flex flex-row"
           onClick={() => {
-            onChange('open1')
+            onChange("open1");
           }}
         >
           자료형
-          {open1 ? <ExpandArrow /> : <ShrinkArrow />}
+          {open1 ? (
+            <ExpandArrow classname="fill-black" />
+          ) : (
+            <ShrinkArrow classname="fill-black" />
+          )}
         </button>
         {open1 && (
           <div>
@@ -78,11 +82,15 @@ export default function Page () {
         <button
           className="text-2xl font-bold md:text-2xl flex flex-row"
           onClick={() => {
-            onChange('open2')
+            onChange("open2");
           }}
         >
           자료형
-          {open2 ? <ExpandArrow /> : <ShrinkArrow />}
+          {open2 ? (
+            <ExpandArrow classname="fill-black" />
+          ) : (
+            <ShrinkArrow classname="fill-black" />
+          )}
         </button>
         {open2 && (
           <div>
@@ -122,11 +130,11 @@ export default function Page () {
       <button
         className="fixed bottom-12 right-12 rounded-full bg-blue-400 w-10 h-10 flex items-center justify-center"
         onClick={() => {
-          window.scroll(0, 0)
+          window.scroll(0, 0);
         }}
       >
-        <ShrinkArrow />
+        <ShrinkArrow classname="fill-black" />
       </button>
     </div>
-  )
+  );
 }

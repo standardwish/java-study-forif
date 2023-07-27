@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Suspense, useState } from "react";
 import ExpandArrow from "./icons/arrow_expand";
-import ShrinkArrow from "./icons/arrow_less";
+import ShrinkArrow from "./icons/arrow_shrink";
 import NavIcon from "./icons/nav_logo";
 import WhiteForif from "./icons/white-forif";
 
@@ -15,15 +15,16 @@ function HeaderPage() {
   const [detail, showDetail] = useState(false);
   const { data: session, status } = useSession();
   const onShow = () => {
-    if (show) {
-      setShow(false);
-    }
+    setShow(!show);
+    window.scrollTo(0, 0);
   };
 
   return (
-    <header className="flex flex-row justify-between items-center h-20 px-8 bg-black text-white sticky top-0">
-      <a href="/">
-        <WhiteForif />
+    <header className="flex flex-row justify-between items-center h-20 px-8 md:px-0 bg-black text-white sticky md:static top-0 md:w-screen md:z-50">
+      <a href="/" className="md:pl-4">
+        <div className={show ? "fixed top-4" : ""}>
+          <WhiteForif />
+        </div>
       </a>
       <nav className="flex flex-row gap-5 text-sm md:hidden">
         <div className="inline-block">
@@ -40,7 +41,13 @@ function HeaderPage() {
               }
             >
               과제
-              <div>{assign ? <ShrinkArrow /> : <ExpandArrow />}</div>
+              <div>
+                {assign ? (
+                  <ShrinkArrow classname="fill-white" />
+                ) : (
+                  <ExpandArrow classname="fill-white" />
+                )}
+              </div>
             </span>
           </button>
           {assign && (
@@ -201,19 +208,16 @@ function HeaderPage() {
       </nav>
 
       <div className="hidden md:block">
-        <button
-          className="mr-3 mt-2"
-          onClick={() => {
-            setShow(!show);
-          }}
-        >
-          <NavIcon />
+        <button className="mt-2" onClick={onShow}>
+          <div className={show ? "fixed right-3 top-6" : "pr-3 right-0"}>
+            <NavIcon />
+          </div>
         </button>
       </div>
       {show && (
-        <div className="absolute top-20 w-full h-full bg-slate-50 z-50">
-          <ul className="pt-5 pl-4 flex flex-col gap-4 text-base">
-            <div>
+        <nav className="top-20 bg-black w-full h-screen fixed scrollbar-hide z-50">
+          <ul className="flex flex-col gap-9 text-base">
+            <div className="ml-4 mt-5">
               <button
                 className="flex flex-row gap-1 items-center"
                 onClick={() => {
@@ -221,66 +225,86 @@ function HeaderPage() {
                 }}
               >
                 과제
-                {detail ? <ShrinkArrow /> : <ExpandArrow />}
+                {detail ? (
+                  <ShrinkArrow classname="fill-white" />
+                ) : (
+                  <ExpandArrow classname="fill-white" />
+                )}
               </button>
               {detail && (
                 <ul className="flex flex-col gap-2 mt-4 animate-dropdown_down relative">
                   <Link href="/assignment" onClick={onShow}>
-                    <li className="text-base font-light">과제 확인</li>
+                    <li className="text-base">과제 확인</li>
                   </Link>
                   <Link
-                    className={session ? "" : "disabled cursor-not-allowed"}
+                    className={
+                      status === "authenticated"
+                        ? ""
+                        : "opacity-50 cursor-not-allowed"
+                    }
                     href="/assignment/submit"
                     onClick={() => {
                       setShow(false);
                     }}
                   >
-                    <li className={session ? "text-base" : "text-base"}>
-                      과제 제출
-                    </li>
+                    <li>과제 제출</li>
                   </Link>
                   <Link
+                    className={
+                      status === "authenticated"
+                        ? ""
+                        : "opacity-50 cursor-not-allowed"
+                    }
                     href="/assignment/solution"
                     onClick={() => {
                       setShow(false);
                     }}
                   >
-                    <li className="text-base font-light">솔루션</li>
+                    <li>솔루션 보기</li>
+                  </Link>
+                  <Link
+                    href="/assignment/errors"
+                    onClick={() => {
+                      setShow(false);
+                    }}
+                  >
+                    <li>자주 발생하는 에러</li>
                   </Link>
                 </ul>
               )}
             </div>
-            <hr className="bg-black mr-5" />
-            <Link
-              href="/errors"
-              onClick={() => {
-                setShow(false);
-              }}
-            >
-              <li>자주 발생하는 오류</li>
-            </Link>
-            <hr className="bg-black mr-5" />
             <Link
               href="/study"
+              className="ml-4"
               onClick={() => {
                 setShow(false);
               }}
             >
               <li>스터디 운영 방식</li>
             </Link>
-            <hr className="bg-black mr-5" />
+
+            <Link
+              href="/members"
+              className={
+                status === "authenticated"
+                  ? "ml-4"
+                  : "opacity-50 cursor-not-allowed ml-4"
+              }
+              onClick={() => {
+                setShow(false);
+              }}
+            >
+              <li>멤버들</li>
+            </Link>
+
             {status === "loading" ? (
-              <Link
-                href="/auth/mypage"
-                onClick={() => {
-                  setShow(false);
-                }}
-              >
-                <li>로딩중...</li>
-              </Link>
+              <p className="ml-4">
+                <li>로딩중</li>
+              </p>
             ) : status === "authenticated" ? (
               <Link
                 href="/auth/signin"
+                className="ml-4"
                 onClick={() => {
                   setShow(false);
                 }}
@@ -290,6 +314,7 @@ function HeaderPage() {
             ) : (
               <Link
                 href="/auth/signin"
+                className="ml-4"
                 onClick={() => {
                   setShow(false);
                 }}
@@ -298,7 +323,7 @@ function HeaderPage() {
               </Link>
             )}
           </ul>
-        </div>
+        </nav>
       )}
     </header>
   );

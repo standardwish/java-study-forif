@@ -34,3 +34,7 @@ export interface LoginUserParams {
 export interface IconMode {
   darkMode: boolean;
 }
+
+export interface ArrowProp {
+  classname: string;
+}

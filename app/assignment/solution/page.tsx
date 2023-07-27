@@ -1,25 +1,25 @@
-'use client'
-import Assignment1 from '@/app/components/codes/assignment1'
-import Assignment2 from '@/app/components/codes/assignment2'
-import Assignment3 from '@/app/components/codes/assignment3'
-import ExpandArrow from '@/app/components/icons/arrow_expand'
-import ShrinkArrow from '@/app/components/icons/arrow_less'
-import Name from '@/app/components/problems/name'
-import Image from 'next/image'
-import { useState } from 'react'
-export default function Page () {
+"use client";
+import Assignment1 from "@/app/components/codes/assignment1";
+import Assignment2 from "@/app/components/codes/assignment2";
+import Assignment3 from "@/app/components/codes/assignment3";
+import ExpandArrow from "@/app/components/icons/arrow_expand";
+import ShrinkArrow from "@/app/components/icons/arrow_shrink";
+import Name from "@/app/components/problems/name";
+import Image from "next/image";
+import { useState } from "react";
+export default function Page() {
   const [opens, setOpens]: any = useState({
     open1: false,
-    open2: false
-  })
+    open2: false,
+  });
 
-  const { open1, open2 } = opens
+  const { open1, open2 } = opens;
   const onChange = (name: any) => {
     setOpens({
       ...opens,
-      [name]: !opens[name]
-    })
-  }
+      [name]: !opens[name],
+    });
+  };
 
   return (
     <>
@@ -37,7 +37,9 @@ export default function Page () {
         <div className="flex flex-col gap-3">
           <button
             className="text-2xl font-bold md:text-2xl border-b-2 border-solid pb-3 border-gray-200 flex flex-row justify-center items-center"
-            onClick={() => { onChange('open1') }}
+            onClick={() => {
+              onChange("open1");
+            }}
           >
             자료형
             {open1 ? <ExpandArrow /> : <ShrinkArrow />}
@@ -58,7 +60,9 @@ export default function Page () {
           )}
           <button
             className="text-2xl font-bold md:text-2xl border-b-2 border-solid pb-3 border-gray-200 flex flex-row justify-center items-center"
-            onClick={() => { onChange('open2') }}
+            onClick={() => {
+              onChange("open2");
+            }}
           >
             연산자
             {open2 ? <ExpandArrow /> : <ShrinkArrow />}
@@ -81,10 +85,12 @@ export default function Page () {
       </div>
       <button
         className="fixed bottom-12 right-12 rounded-full bg-blue-400 w-10 h-10 flex items-center justify-center"
-        onClick={() => { window.scroll(0, 0) }}
+        onClick={() => {
+          window.scroll(0, 0);
+        }}
       >
         <ShrinkArrow />
       </button>
     </>
-  )
+  );
 }
