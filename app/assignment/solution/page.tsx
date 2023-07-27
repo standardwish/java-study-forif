@@ -42,7 +42,11 @@ export default function Page() {
             }}
           >
             자료형
-            {open1 ? <ExpandArrow /> : <ShrinkArrow />}
+            {open1 ? (
+              <ExpandArrow classname="fill-white" />
+            ) : (
+              <ShrinkArrow classname="fill-white" />
+            )}
           </button>
           {open1 && (
             <div className="flex flex-col gap-3 mb-8">
@@ -65,7 +69,11 @@ export default function Page() {
             }}
           >
             연산자
-            {open2 ? <ExpandArrow /> : <ShrinkArrow />}
+            {open2 ? (
+              <ExpandArrow classname="fill-white" />
+            ) : (
+              <ShrinkArrow classname="fill-white" />
+            )}
           </button>
           {open2 && (
             <div className="flex flex-col gap-3 mb-8">
@@ -89,7 +97,7 @@ export default function Page() {
           window.scroll(0, 0);
         }}
       >
-        <ShrinkArrow />
+        <ShrinkArrow classname="fill-white" />
       </button>
     </>
   );
