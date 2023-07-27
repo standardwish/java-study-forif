@@ -26,6 +26,14 @@ export interface IUser {
   assignment: string;
 }
 
+export interface IApiUser {
+  _id: string;
+  username: string;
+  password: string;
+  major: string;
+  assignment: string;
+}
+
 export interface IDeleteUser {
   uid: string;
   adminPassword: string;

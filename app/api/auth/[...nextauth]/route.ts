@@ -1,6 +1,6 @@
 import connectMongoDB from "@/lib/mongodb";
 import users from "@/models/users";
-import { type IUser } from "@/types/type";
+import { type IApiUser } from "@/types/type";
 import NextAuth, { type NextAuthOptions } from "next-auth";
 import CredentialProvider from "next-auth/providers/credentials";
 
@@ -47,7 +47,7 @@ const options: NextAuthOptions = {
       return token;
     },
     session: async ({ session, token }) => {
-      const user = token.user as IUser;
+      const user = token.user as IApiUser;
 
       session.user = user;
       return session;
