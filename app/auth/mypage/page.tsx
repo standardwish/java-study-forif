@@ -46,13 +46,9 @@ export default function Page() {
   };
 
   function IsAdmin(adminList: string[], uid: string | undefined) {
-    if (typeof uid === "string") {
-      const isAdmin =
-        adminList.find((e) => e === uid) !== undefined ? true : false;
-      return isAdmin;
-    } else {
-      return false;
-    }
+    const isAdmin =
+      adminList.find((e) => e === uid) !== undefined ? true : false;
+    return isAdmin;
   }
 
   return (
