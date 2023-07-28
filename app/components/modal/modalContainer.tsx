@@ -119,10 +119,10 @@ function AddModal() {
 
   async function createUser({ username, password, major, assignment }: IUser) {
     const data = await setNewUser({
-      username: username,
-      password: password,
-      major: major,
-      assignment: assignment,
+      username,
+      password,
+      major,
+      assignment,
     });
     return data;
   }
@@ -141,10 +141,10 @@ function AddModal() {
       });
     } else {
       const res = await createUser({
-        username: username,
-        password: password,
-        major: major,
-        assignment: assignment,
+        username,
+        password,
+        major,
+        assignment,
       });
 
       showToast({

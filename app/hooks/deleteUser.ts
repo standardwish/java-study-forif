@@ -9,7 +9,6 @@ export const deleteUser = async ({ uid, adminPassword }: IDeleteUser) => {
     process.env.NODE_ENV === "development"
       ? `http://localhost:3000/api/users?id=${uid}`
       : `https://java-study-forif.vercel.app/api/users?id=${uid}`;
-  console.log(process.env.ADMIN_PASSWORD);
 
   if (adminPassword === "zce9910272!") {
     try {
