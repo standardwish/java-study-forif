@@ -8,23 +8,24 @@ const notion = new Client({
   auth: notionAccessToken,
 });
 
-type multiSelect = {
+interface multiSelect {
   name: string;
   color: string;
-};
+}
 
-type Row = {
+interface Row {
   NameOfAssignment: { id: string; title: { text: { content: string } }[] };
   Tags: {
     id: string;
     multi_select: multiSelect[];
   };
   Mentor: { id: string; rich_text: [{ text: { content: string } }] };
-};
+}
 
 export async function GET() {
-  if (!notionAccessToken || !notionDatabaseId)
+  if (!notionAccessToken || !notionDatabaseId) {
     throw new Error("Missing Notion KEYs");
+  }
   const query = await notion.databases.query({
     database_id: notionDatabaseId,
   });
