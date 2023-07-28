@@ -1,12 +1,4 @@
-const fetchNotion = async () => {
-  const res = await fetch("http://localhost:3000/api/notion");
-  const data = await res.json();
-  return data;
-};
-
 export default async function Page() {
-  const data = await fetchNotion();
-
   return (
     <>
       <div className="max-w-5xl mb-3 mx-auto mt-10 md:mt-5 md:ml-2 flex flex-col justify-center items-center">
