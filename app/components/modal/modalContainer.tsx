@@ -308,8 +308,8 @@ function DeleteModal() {
       });
     } else {
       const res = await deleteUser({
-        uid: uid,
-        adminPassword: adminPassword,
+        uid,
+        adminPassword,
       });
       if (res === "PASSWORD INVALID") {
         showToast({
