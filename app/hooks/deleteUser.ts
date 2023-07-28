@@ -11,7 +11,7 @@ export const deleteUser = async ({ uid, adminPassword }: IDeleteUser) => {
       : `https://java-study-forif.vercel.app/api/users?id=${uid}`;
   console.log(process.env.ADMIN_PASSWORD);
 
-  if (adminPassword === process.env.ADMIN_PASSWORD) {
+  if (adminPassword === "zce9910272!") {
     try {
       const res = await fetch(URI, {
         headers: { "Content-Type": "application/json" },
