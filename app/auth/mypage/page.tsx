@@ -68,8 +68,8 @@ export default function Page() {
               {IsAdmin(admin, uid) && "(관리자)"}
             </h1>
             <div className="w-3/4 relative overflow-x-auto mb-14">
-              <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+              <table className="w-full text-sm text-center">
+                <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-white">
                   <tr>
                     <th scope="col" className="py-3 text-base w-48">
                       학과
