@@ -6,7 +6,7 @@ import axios from "axios";
  * @returns 과제명, 태그, 멘토
  */
 export const getNotion = async () => {
-  const URI = `${process.env.NEXTAUTH_URL}/api/notion`;
+  const URI = `https://java-study-forif.vercel.app/api/notion`;
   try {
     if (typeof URI === "string") {
       const res = await axios.get(URI);
