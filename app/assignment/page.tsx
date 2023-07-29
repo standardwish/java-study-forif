@@ -60,22 +60,19 @@ export default async function Page() {
           </table>
         </div>
         <div className="flex flex-row gap-3">
-          <span className="border-red-800 border-2 rounded-md px-1 text-xs">
+          <span className="border-red-800 bg-red-800 border-2 rounded-md px-1 text-xs">
             TEST COLOR
           </span>
-          <span className="border-blue-800 border-2 rounded-md px-1 text-xs">
+          <span className="border-blue-800 bg-blue-800 border-2 rounded-md px-1 text-xs">
             TEST COLOR
           </span>
-          <span className="border-purple-800 border-2 rounded-md px-1 text-xs">
+          <span className="border-purple-800 bg-purple-800 border-2 rounded-md px-1 text-xs">
             TEST COLOR
           </span>
-          <span className="border-green-800 border-2 rounded-md px-1 text-xs">
+          <span className="border-green-800 bg-green-800 border-2 rounded-md px-1 text-xs">
             TEST COLOR
           </span>
-          <span className="border-default-800 border-2 rounded-md px-1 text-xs">
-            TEST COLOR
-          </span>
-          <span className="border-orange-800 border-2 rounded-md px-1 text-xs">
+          <span className="border-orange-800 bg-orange-800 border-2 rounded-md px-1 text-xs">
             TEST COLOR
           </span>
         </div>
