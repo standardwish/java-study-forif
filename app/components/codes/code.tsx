@@ -98,3 +98,20 @@ for(int i = 1; i <= 10; i++) {
 }
 printf("Even : %d, Odd : %d", even, odd);
 `;
+
+export const cannotFindSymbol = `int num1 = 2;
+// int num2 = 5;
+for(int i = 1; i <= 10; i++) {
+    if(i % 2 == 0) {
+		num1++;
+	} else {
+		num2++;	
+	}
+}
+printf("Even : %d, Odd : %d", even, odd);
+
+//num2라는 변수를 선언하지 않아 에러 발생!
+java: cannot find symbol
+  symbol:   variable num2
+  location: class javaStudy.Error1
+`;

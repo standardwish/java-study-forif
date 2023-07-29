@@ -1,3 +1,4 @@
+import type { title, Tags, rich_text, rich_week } from "@/types/notion_type";
 import { Client } from "@notionhq/client";
 import { NextResponse } from "next/server";
 
@@ -8,18 +9,11 @@ const notion = new Client({
   auth: notionAccessToken,
 });
 
-interface multiSelect {
-  name: string;
-  color: string;
-}
-
-interface Row {
-  NameOfAssignment: { id: string; title: { text: { content: string } }[] };
-  Tags: {
-    id: string;
-    multi_select: multiSelect[];
-  };
-  Mentor: { id: string; rich_text: [{ text: { content: string } }] };
+export interface notionRow {
+  NameOfAssignment: title;
+  Tags: Tags;
+  Week: rich_week;
+  Mentor: rich_text;
 }
 
 export async function GET() {
@@ -31,14 +25,12 @@ export async function GET() {
   });
 
   // @ts-ignore
-  const rows = query.results.map((res) => res.properties) as Row[];
+  const rows = query.results.map((res) => res.properties) as notionRow[];
 
   const rowStructured = rows.map((row) => ({
     NameOfAssignment: row.NameOfAssignment.title[0].text.content,
-    Tags: [
-      row.Tags.multi_select.map((val) => val.name),
-      row.Tags.multi_select.map((val) => val.color),
-    ],
+    Tags: row.Tags.multi_select.map((tag) => tag),
+    Week: row.Week.rich_text[0].text.content,
     Mentor: row.Mentor.rich_text[0].text.content,
   }));
 
