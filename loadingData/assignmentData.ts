@@ -12,6 +12,7 @@ export const assignLoadingData: AssignmentData = {
       ],
       Week: 0,
       Mentor: "로딩중",
+      pageId: "12df1-12dsfdf-12312dsfd-12",
     },
     {
       NameOfAssignment: "로딩중",
@@ -23,6 +24,7 @@ export const assignLoadingData: AssignmentData = {
       ],
       Week: 0,
       Mentor: "로딩중",
+      pageId: "12df1-12dsfdf-12312dsfd-12",
     },
     {
       NameOfAssignment: "로딩중",
@@ -34,6 +36,7 @@ export const assignLoadingData: AssignmentData = {
       ],
       Week: 0,
       Mentor: "로딩중",
+      pageId: "12df1-12dsfdf-12312dsfd-12",
     },
     {
       NameOfAssignment: "로딩중",
@@ -45,6 +48,7 @@ export const assignLoadingData: AssignmentData = {
       ],
       Week: 0,
       Mentor: "로딩중",
+      pageId: "12df1-12dsfdf-12312dsfd-12",
     },
     {
       NameOfAssignment: "로딩중",
@@ -56,6 +60,7 @@ export const assignLoadingData: AssignmentData = {
       ],
       Week: 0,
       Mentor: "로딩중",
+      pageId: "12df1-12dsfdf-12312dsfd-12",
     },
   ],
 };
