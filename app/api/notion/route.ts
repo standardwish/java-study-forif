@@ -26,7 +26,7 @@ export async function GET() {
 
   // @ts-ignore
   const rows = query.results.map((res) => res.properties) as notionRow[];
-  const pageIdRows = query.results.map((res) => res.id) as string[];
+  const pageIdRows = query.results.map((res) => res.id);
 
   const rowStructured = rows.map((row, idx) => ({
     NameOfAssignment: row.NameOfAssignment.title[0].text.content,
