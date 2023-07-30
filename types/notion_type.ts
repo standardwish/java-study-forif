@@ -28,6 +28,7 @@ export interface Assignment {
   Tags: multiSelect[];
   Week: number;
   Mentor: string;
+  pageId: string;
 }
 
 export interface AssignmentData {
@@ -39,4 +40,23 @@ export interface notionRow {
   Tags: Tags;
   Week: rich_week;
   Mentor: rich_text;
+}
+export interface blockData {
+  id: string;
+  paragraph: {
+    rich_text: [
+      {
+        plain_text: string;
+        annotations: {
+          bold: boolean;
+        };
+      }
+    ];
+  };
+}
+
+export interface BlockData {
+  data: {
+    results: blockData[];
+  };
 }

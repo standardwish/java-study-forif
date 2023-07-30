@@ -1,19 +1,11 @@
 "use client";
-import type { AssignmentData } from "@/types/notion_type";
-import { getNotionDatabase, getNotionPage } from "../hooks/getNotion";
+import Link from "next/link";
+import { getDatabase } from "../hooks/getNotion";
 
 export default async function Page() {
-  const getDatabase = async () => {
-    const res: AssignmentData = await getNotionDatabase();
-    const data = res.rowStructured;
-    return data;
-  };
   const data = await getDatabase();
 
-  const getPage = async (pageId: string) => {
-    const res: any = await getNotionPage(pageId);
-    console.log(res);
-  };
+  const pageId = "ac5837d0-f36a-4188-9232-e59d7892b3cf";
 
   return (
     <>
@@ -44,13 +36,9 @@ export default async function Page() {
                 return (
                   <tr key={idx}>
                     <th scope="row" className="py-4" key={idx}>
-                      <button
-                        onClick={async () => {
-                          await getPage("dc4ffdc8-3c1a-4d8a-b10a-00a1df44be32");
-                        }}
-                      >
+                      <Link href={`/assignment/${val.pageId}`}>
                         {val.NameOfAssignment}
-                      </button>
+                      </Link>
                     </th>
                     <td className="py-4 flex flex-row items-center gap-3 text-xs">
                       {val.Tags.map((tag, idx) => {

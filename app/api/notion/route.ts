@@ -26,13 +26,15 @@ export async function GET() {
 
   // @ts-ignore
   const rows = query.results.map((res) => res.properties) as notionRow[];
+  const pageIdRows = query.results.map((res) => res.id) as string[];
 
-  const rowStructured = rows.map((row) => ({
+  const rowStructured = rows.map((row, idx) => ({
     NameOfAssignment: row.NameOfAssignment.title[0].text.content,
     Tags: row.Tags.multi_select.map((tag) => tag),
     Week: row.Week.rich_text[0].text.content,
     Mentor: row.Mentor.rich_text[0].text.content,
+    pageId: pageIdRows[idx],
   }));
 
-  return NextResponse.json({ rowStructured });
+  return NextResponse.json({ rowStructured }, { status: 200 });
 }
