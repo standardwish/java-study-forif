@@ -5,12 +5,12 @@ import { NextResponse } from "next/server";
 const notionDatabaseId = process.env.NOTION_DATABASE;
 const token = process.env.NOTION_ACCESS_TOKEN;
 
-export async function GET() {
-  const notion = new Client({
-    auth: token,
-    notionVersion: "2022-06-28",
-  });
+const notion = new Client({
+  auth: token,
+  notionVersion: "2022-06-28",
+});
 
+export async function GET() {
   if (!token || !notionDatabaseId) {
     throw new Error("Missing Notion KEYs");
   }
