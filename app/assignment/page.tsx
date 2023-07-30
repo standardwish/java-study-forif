@@ -10,8 +10,8 @@ export default async function Page() {
   };
   const data = await getDatabase();
 
-  const getPage = async (page_id: string) => {
-    const res: any = await getNotionPage(page_id);
+  const getPage = async (pageId: string) => {
+    const res: any = await getNotionPage(pageId);
     console.log(res);
   };
 

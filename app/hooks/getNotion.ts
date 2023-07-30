@@ -27,9 +27,9 @@ export const getNotionDatabase = async () => {
  * @param page_id
  * @returns 페이지 정보
  */
-export const getNotionPage = async (page_id: string) => {
-  const APP_URI = `https://java-study-forif.vercel.app/api/notion/${page_id}`;
-  const LOCAL_URI = `http://localhost:3000/api/notion/${page_id}`;
+export const getNotionPage = async (pageId: string) => {
+  const APP_URI = `https://java-study-forif.vercel.app/api/notion/${pageId}`;
+  const LOCAL_URI = `http://localhost:3000/api/notion/${pageId}`;
 
   const URI = LOCAL_URI;
 

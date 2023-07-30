@@ -8,7 +8,7 @@ const notion = new Client({
   auth: notionAccessToken,
 });
 
-export async function GET(req: NextApiRequest, { params }: any) {
+export async function GET({ params }: any) {
   const { id } = params;
 
   if (!notionAccessToken) {
