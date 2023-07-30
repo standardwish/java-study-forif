@@ -9,7 +9,7 @@ export const getNotionDatabase = async () => {
   const APP_URI = `https://java-study-forif.vercel.app/api/notion`;
   const LOCAL_URI = `http://localhost:3000/api/notion`;
 
-  const URI = `${process.env.NEXTAUTH_URL}/api/notion`;
+  const URI = `https://java-study-forif.vercel.app/api/notion`;
   try {
     if (typeof URI === "string") {
       const res = await axios.get(URI);
@@ -31,7 +31,7 @@ export const getNotionPage = async (pageId: string) => {
   const APP_URI = `https://java-study-forif.vercel.app/api/notion/${pageId}`;
   const LOCAL_URI = `http://localhost:3000/api/notion/${pageId}`;
 
-  const URI = `${process.env.NEXTAUTH_URL}/api/notion/${pageId}`;
+  const URI = `https://java-study-forif.vercel.app/api/notion/${pageId}`;
 
   try {
     if (typeof URI === "string") {
