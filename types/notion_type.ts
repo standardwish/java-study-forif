@@ -33,3 +33,10 @@ export interface Assignment {
 export interface AssignmentData {
   rowStructured: Assignment[];
 }
+
+export interface notionRow {
+  NameOfAssignment: title;
+  Tags: Tags;
+  Week: rich_week;
+  Mentor: rich_text;
+}

@@ -1,27 +1,27 @@
-import type { title, Tags, rich_text, rich_week } from "@/types/notion_type";
+import type { notionRow } from "@/types/notion_type";
 import { Client } from "@notionhq/client";
 import { NextResponse } from "next/server";
 
 const notionDatabaseId = process.env.NOTION_DATABASE;
-const notionAccessToken = process.env.NOTION_ACCESS_TOKEN;
-
-const notion = new Client({
-  auth: notionAccessToken,
-});
-
-export interface notionRow {
-  NameOfAssignment: title;
-  Tags: Tags;
-  Week: rich_week;
-  Mentor: rich_text;
-}
+const token = process.env.NOTION_ACCESS_TOKEN;
 
 export async function GET() {
-  if (!notionAccessToken || !notionDatabaseId) {
+  const notion = new Client({
+    auth: token,
+    notionVersion: "2022-06-28",
+  });
+
+  if (!token || !notionDatabaseId) {
     throw new Error("Missing Notion KEYs");
   }
   const query = await notion.databases.query({
     database_id: notionDatabaseId,
+    sorts: [
+      {
+        property: "Week",
+        direction: "ascending",
+      },
+    ],
   });
 
   // @ts-ignore

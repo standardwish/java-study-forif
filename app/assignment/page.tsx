@@ -1,12 +1,19 @@
+"use client";
 import type { AssignmentData } from "@/types/notion_type";
-import { getNotion } from "../hooks/getNotion";
+import { getNotionDatabase, getNotionPage } from "../hooks/getNotion";
 
 export default async function Page() {
-  const res: AssignmentData = await getNotion();
-  const data = res.rowStructured;
-  const assignData = data.sort(function (a, b) {
-    return a.Week - b.Week;
-  });
+  const getDatabase = async () => {
+    const res: AssignmentData = await getNotionDatabase();
+    const data = res.rowStructured;
+    return data;
+  };
+  const data = await getDatabase();
+
+  const getPage = async (page_id: string) => {
+    const res: any = await getNotionPage(page_id);
+    console.log(res);
+  };
 
   return (
     <>
@@ -15,8 +22,8 @@ export default async function Page() {
           <h1 className="text-4xl font-bold md:text-3xl">과제 리스트</h1>
         </div>
         <div className="w-full relative overflow-x-auto my-14">
-          <table className="w-full text-sm text-center">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-white">
+          <table className="w-full text-sm text-center overflow-x-auto">
+            <thead className="text-xs text-pink-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-white">
               <tr>
                 <th scope="col" className="py-3 text-base w-48">
                   과제명
@@ -33,11 +40,17 @@ export default async function Page() {
               </tr>
             </thead>
             <tbody>
-              {assignData.map((val, idx) => {
+              {data.map((val, idx) => {
                 return (
                   <tr key={idx}>
                     <th scope="row" className="py-4" key={idx}>
-                      <button>{val.NameOfAssignment}</button>
+                      <button
+                        onClick={async () => {
+                          await getPage("dc4ffdc8-3c1a-4d8a-b10a-00a1df44be32");
+                        }}
+                      >
+                        {val.NameOfAssignment}
+                      </button>
                     </th>
                     <td className="py-4 flex flex-row items-center gap-3 text-xs">
                       {val.Tags.map((tag, idx) => {
@@ -73,6 +86,15 @@ export default async function Page() {
             TEST COLOR
           </span>
           <span className="border-orange-800 bg-orange-800 border-2 rounded-md px-1 text-xs">
+            TEST COLOR
+          </span>
+          <span className="border-brown-800 bg-brown-800 border-2 rounded-md px-1 text-xs">
+            TEST COLOR
+          </span>
+          <span className="border-gray-800 bg-gray-800 border-2 rounded-md px-1 text-xs">
+            TEST COLOR
+          </span>
+          <span className="border-pink-800 bg-pink-800 border-2 rounded-md px-1 text-xs">
             TEST COLOR
           </span>
         </div>
