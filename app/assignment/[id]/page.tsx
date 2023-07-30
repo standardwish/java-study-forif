@@ -60,9 +60,9 @@ export default function Page() {
   }, [blockData, pageId]);
 
   return (
-    <div className="w-4/5 mx-auto mb-3 mt-10 md:mt-5 md:ml-3 h-screen">
+    <div className="w-4/5 mx-auto mb-3 mt-10 md:mt-5 h-screen">
       <div className="mb-5 flex flex-row gap-2 items-center justify-center">
-        <h1 className="text-4xl font-bold md:text-3xl">
+        <h1 className="text-4xl font-bold md:text-3xl text-center">
           {blockData ? title : "로딩중"}
         </h1>
       </div>
@@ -72,8 +72,8 @@ export default function Page() {
         <div className="mb-4">
           {blockData
             ? problem.map((row, idx) => {
-              return <p key={idx}>{row}</p>;
-            })
+                return <p key={idx}>{row}</p>;
+              })
             : "로딩 중"}
         </div>
         <h1 className="text-2xl mb-3">출력</h1>
@@ -81,8 +81,8 @@ export default function Page() {
         <div className="mb-4">
           {blockData
             ? exp.map((row, idx) => {
-              return <p key={idx}>{row}</p>;
-            })
+                return <p key={idx}>{row}</p>;
+              })
             : "로딩 중"}
         </div>
       </div>

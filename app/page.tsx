@@ -131,13 +131,13 @@ const AuthPage = () => {
   const pos = useScroll();
   return (
     <div className={UbunTu.className}>
-      <div className="relative text-8xl md:text-4xl leading-normal items-center flex flex-col justify-center font-bold h-screen pt-20 z-0">
+      <div className="relative text-8xl md:text-3xl leading-normal items-center flex flex-col justify-center font-bold h-screen pt-20 z-0">
         <div className="relative animate-fadein mt-[-15rem]">
           <h1>포리프 자바 스터디</h1>
-          <Link href="/">
+          <Link href="/assignment">
             <Notification />
           </Link>
-          <h1 className="text-2xl">
+          <h1 className="text-2xl md:text-xl">
             {useTypingWords(`환영해요, ${session?.user.username}님.`, 100)}
           </h1>
         </div>

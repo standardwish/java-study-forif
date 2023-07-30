@@ -6,11 +6,10 @@ import axios from "axios";
  * @returns 유저정보
  */
 export const getAllUsers = async () => {
-  const URI = `${process.env.NEXTAUTH_URL}/api/users`;
+  const URI = `https://java-study-forif.vercel.app/api/users`;
   try {
     if (typeof URI === "string") {
       const res = await axios.get(URI);
-      console.log("Get All Users Data", res.status);
       return res.data;
     }
   } catch (error) {

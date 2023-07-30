@@ -10,10 +10,10 @@ export default function Page() {
         <div className="leading-7 text-left">
           <h1 className="text-2xl mb-3">문제</h1>
           <hr className="w-12 h-1 bg-white mb-5" />
-          <div className="mb-4">로딩중</div>
+          <div className="mb-4">로딩 중</div>
           <h1 className="text-2xl mb-3">출력</h1>
           <hr className="w-12 h-1 bg-white mb-5" />
-          <div className="mb-4">로딩중</div>
+          <div className="mb-4">로딩 중</div>
         </div>
       </div>
       <Spinner />

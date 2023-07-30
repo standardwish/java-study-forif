@@ -1,15 +1,14 @@
 "use client";
 import BlackForif from "@/app/components/icons/black-forif";
+import Modal from "@/app/components/modal/modal";
 import { showToast } from "@/app/components/toast/toast";
+import { modalState } from "@/recoil/store";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { logOutUser } from "../../hooks/setUser";
-import { setNewUser } from "@/app/hooks/setNewUser";
 import { useState } from "react";
-import Modal from "@/app/components/modal/modal";
 import { useRecoilState } from "recoil";
-import { modalState } from "@/recoil/store";
+import { logOutUser } from "../../hooks/setUser";
 export default function Page() {
   const router = useRouter();
   const { data: session } = useSession();

@@ -1,24 +1,43 @@
 import { setNewUser } from "@/app/hooks/setNewUser";
 import { modalState } from "@/recoil/store";
-import type { IUser } from "@/types/type";
-import { useState } from "react";
+import type { IUser, UserType, UsersType } from "@/types/type";
+import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { showToast } from "../toast/toast";
 import { deleteUser } from "@/app/hooks/deleteUser";
+import { getAllUsers } from "@/app/hooks/getAllUsers";
+import { handleClientScriptLoad } from "next/script";
+import useCopyClipBoard from "@/app/hooks/useClipboard";
 
 function ShowUserModal() {
   const [modalOpen, isModalOpen] = useRecoilState(modalState);
+  const [users, setUsers] = useState<any>();
+  const [isCopy, onCopy] = useCopyClipBoard();
+
+  const handleCopyClipBoard = (text: string) => {
+    onCopy(text);
+  };
+  console.log(isCopy);
+
+  useEffect(() => {
+    async function getUser() {
+      const getAllUser = async () => {
+        const { users }: UsersType = await getAllUsers();
+        return users;
+      };
+      const data = await getAllUser();
+      setUsers(data);
+    }
+    getUser();
+  }, []);
   function setModalOpen() {
     isModalOpen(false);
   }
 
   return (
     <>
-      <div
-        id="authentication-modal"
-        className="fixed left-1/3 md:top-1/3 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
-      >
-        <div className="relative w-full max-w-md max-h-full">
+      <div className="fixed left-1/4 md:top-1/3 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)]">
+        <div className="relative w-full max-w-3xl max-h-full">
           <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <button
               type="button"
@@ -43,50 +62,62 @@ function ShowUserModal() {
               </svg>
               <span className="sr-only">Close modal</span>
             </button>
-            <div className="px-6 py-6 lg:px-8">
-              <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">
-                유저 추가
+            <div className="pb-4">
+              <h3 className="py-4 px-4 text-xl text-gray-900 font-bold">
+                유저 정보
               </h3>
-              <form className="space-y-6">
-                <div>
-                  <label
-                    htmlFor="username"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    유저 이름
-                  </label>
-                </div>
-                <div>
-                  <label
-                    htmlFor="password"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    비밀번호
-                  </label>
-                </div>
-                <div>
-                  <label
-                    htmlFor="major"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    전공
-                  </label>
-                </div>
-                <div>
-                  <label
-                    htmlFor="assignment"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    과제 수행 횟수(초깃값 : 0)
-                  </label>
-                </div>
-                <button
-                  type="button"
-                  className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                >
-                  데이터베이스에 유저 추가하기
-                </button>
-              </form>
+              <div className="space-y-6 pb-4">
+                <table className="w-full h-full text-sm text-center">
+                  <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700">
+                    <tr>
+                      <th scope="col" className="px-6 py-3 text-base">
+                        UID
+                      </th>
+                      <th scope="col" className="px-6 py-3 text-base">
+                        이름
+                      </th>
+                      <th scope="col" className="px-6 py-3 text-base">
+                        학과
+                      </th>
+                      <th scope="col" className="px-6 py-3 text-base">
+                        과제 제출 횟수
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-black">
+                    {users ? (
+                      users.map((user: any) => (
+                        <tr
+                          className="bg-white border-b text-black"
+                          key={user._id}
+                        >
+                          <th
+                            scope="row"
+                            className="px-6 py-4 font-medium whitespace-nowrap"
+                          >
+                            <button
+                              onClick={() => handleCopyClipBoard(user._id)}
+                            >
+                              {user._id}
+                            </button>
+                          </th>
+                          <td className="px-6 py-4">{user.username}</td>
+
+                          <td className="px-6 py-4">{user.major}</td>
+                          <td className="px-6 py-4">{user.assignment}</td>
+                        </tr>
+                      ))
+                    ) : (
+                      <th>로딩 중..</th>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h1 className="text-black ml-4">
+                  UID는 마우스 클릭을 통해 복사할 수 있습니다.
+                </h1>
+              </div>
             </div>
           </div>
         </div>
