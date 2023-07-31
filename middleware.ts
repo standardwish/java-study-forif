@@ -25,7 +25,6 @@ export const config = {
     "/auth/mypage",
     "/assignment/submit",
     "/assignment/solution",
-    "/members",
     "/api/:path*",
   ],
 };

@@ -151,28 +151,6 @@ function HeaderPage() {
             스터디 운영 방식
           </span>
         </Link>
-        {session ? (
-          <Link
-            href="/members"
-            className="flex flex-row gap-0 items-center justify-center transition ease-in-out delay-150"
-          >
-            <span
-              className={
-                pathname === "/members"
-                  ? "underline underline-offset-2 decoration-2 decoration-gray-400 transition-all duration-200"
-                  : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p"
-              }
-            >
-              멤버들
-            </span>
-          </Link>
-        ) : (
-          <a className="flex flex-row gap-0 items-center justify-center cursor-not-allowed opacity-60">
-            <span className="border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out">
-              멤버들
-            </span>
-          </a>
-        )}
         {status === "loading" ? (
           <a className="flex flex-row gap-0 items-center justify-center transition ease-in-out delay-150">
             <span>로딩 중...</span>
@@ -284,20 +262,6 @@ function HeaderPage() {
               }}
             >
               <li>스터디 운영 방식</li>
-            </Link>
-
-            <Link
-              href="/members"
-              className={
-                status === "authenticated"
-                  ? "ml-4"
-                  : "opacity-50 cursor-not-allowed ml-4"
-              }
-              onClick={() => {
-                setIsOpen(false);
-              }}
-            >
-              <li>멤버들</li>
             </Link>
 
             {status === "loading" ? (
