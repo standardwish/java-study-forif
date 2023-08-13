@@ -50,15 +50,11 @@ export default function Page() {
           </button>
           {open1 && (
             <div className="flex flex-col gap-3 mb-8">
-              <Name>1-1. 진법변환</Name>
+              <Name>1-1. 연산자</Name>
               <Assignment1 />
               <div className="flex flex-col gap-3 mb-8">
-                <Name>1-2. 진법변환</Name>
+                <Name>1-2. 기본형과 형변환</Name>
                 <Assignment2 />
-              </div>
-              <div className="flex flex-col gap-3 mb-8">
-                <Name>1-3. 진법변환</Name>
-                <Assignment3 />
               </div>
             </div>
           )}

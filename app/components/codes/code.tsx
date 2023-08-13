@@ -1,20 +1,24 @@
 /* eslint-disable */
-export const assignment1 = `package week2;
-public class People {
-      private String name;
-      private int age;
-      private int height;
-  
-      public People(String name, int age, int height) {
-          this.name = name;
-          this.age = age;
-          this.height = height;
-      }
-  
-      @Override
-      public String toString() {
-          return "이름은 " + name +" 나이는 " + age + "살, 키는 " + height + "입니다.";
-      }
+export const assignment1 = `package study;
+import java.util.Scanner;
+public class Main {
+    private static int num1, num2, num3;
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        num1 = sc.nextInt();
+        num2 = sc.nextInt();
+        num3 = sc.nextInt();
+
+        int max;
+        
+        max = (num1 > num2) ? num1 : num2;
+        max = (max > num3) ? max : num3;
+
+        System.out.println("최댓값 : " + max);
+
+    }
 }
 `;
 export const assignment2 = `package week2;
