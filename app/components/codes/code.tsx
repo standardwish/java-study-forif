@@ -21,48 +21,22 @@ public class Main {
     }
 }
 `;
-export const assignment2 = `package week2;
+export const assignment2 = `package study;
+import java.util.*;
 
-public class hw2 {
+public class Week1_2 {
+    private static int num1, num2;
+
     public static void main(String[] args) {
-        //문제 1
-        Car car = new Car("소나타","123",50,100,32.3,21.2);
-        System.out.println(car);
+        Scanner sc = new Scanner(System.in);
+        num1 = sc.nextInt();
+        num2 = sc.nextInt();
 
-        //문제2
-        People[] people = {
-                new People("유동연",24,174),
-                new People("허종구",23,180),
-                new People("표준성",20,180)
-        };
-
-        for (int i = 0; i < 3; i++) {
-            System.out.println(people[i]);
-        }
-
-        //문제3
-        Card[] cards = new Card[100];
-        for (Card card : cards) {
-            card = new Card();
-        }
-
-        //문제4
-        Book book1 = new Book("양병현",2023,"정시템");
-        Book book2 = new Book("정유경");
-        Book book3 = new Book("양병현",2022);
-
-        System.out.println(book1);
-        System.out.println(book2);
-        System.out.println(book3);
-
-        //문제5
-        Account account = new Account("유동연","1",10000);
-        System.out.println("5000원 입금");
-        account.deposit(5000);
-        System.out.println(account.getBalance());
-        System.out.println("5000원 출금");
-        account.withdraw(5000);
-        System.out.println(account.getBalance());
+        System.out.println("합 : " + (num1 + num2));
+        System.out.println("차 : " + (num1 - num2));
+        System.out.println("곱 : " + (num1 * num2));
+        System.out.println("몫 : " + (num1 / num2));
+        System.out.println("나머지 : " + (num1 % num2));
     }
 }`;
 export const assignment3 = `package week2;
