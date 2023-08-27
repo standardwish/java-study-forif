@@ -55,7 +55,7 @@ export const getNotionPage = async (pageId: string) => {
   if (process.env.NODE_ENV === "production") {
     try {
       const res = await axios.get(
-        `https://java-study-forif.vercel.app/api/notion/${pageId}`,
+        `https://forifjava.vercel.app/api/notion/${pageId}`,
         {
           withCredentials: true,
         }
