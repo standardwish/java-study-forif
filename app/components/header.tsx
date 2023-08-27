@@ -270,7 +270,7 @@ function HeaderPage() {
               </p>
             ) : status === "authenticated" ? (
               <Link
-                href="/auth/signin"
+                href="/auth/mypage"
                 className="ml-4"
                 onClick={() => {
                   setIsOpen(false);

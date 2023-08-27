@@ -39,29 +39,19 @@ public class Week1_2 {
         System.out.println("나머지 : " + (num1 % num2));
     }
 }`;
-export const assignment3 = `package week2;
+export const assignment3 = `package study;
+import java.util.*;
+public class Week2_1 {
+    private static int N;
 
-public class Account {
-    private String name;
-    private String num;
-    private int money;
-
-    public Account(String name, String num, int money) {
-        this.name = name;
-        this.num = num;
-        this.money = money;
-    }
-
-    public int getBalance() {
-        return money;
-    }
-
-    public void deposit(int money) {
-        this.money += money;
-    }
-
-    public void withdraw(int money) {
-        this.money -= money;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        N = sc.nextInt();
+        int count = 1;
+        while(count < 10){
+            System.out.println(N + " * " + count + " = " + N * count);
+            count ++;
+        }
     }
 }`;
 

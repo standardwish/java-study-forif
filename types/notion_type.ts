@@ -41,9 +41,25 @@ export interface notionRow {
   Week: rich_week;
   Mentor: rich_text;
 }
-export interface blockData {
+export interface plainBlockData {
   id: string;
+  type: "paragraph";
   paragraph: {
+    rich_text: [
+      {
+        plain_text: string;
+        annotations: {
+          bold: boolean;
+        };
+      }
+    ];
+  };
+}
+
+export interface codeBlockData {
+  id: string;
+  type: "code";
+  code: {
     rich_text: [
       {
         plain_text: string;
@@ -57,6 +73,6 @@ export interface blockData {
 
 export interface BlockData {
   data: {
-    results: blockData[];
+    results: plainBlockData[] | codeBlockData[];
   };
 }

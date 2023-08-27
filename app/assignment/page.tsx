@@ -5,16 +5,12 @@ import { getDatabase } from "../hooks/getNotion";
 export default async function Page() {
   const data = await getDatabase();
 
-  const pageId = "ac5837d0-f36a-4188-9232-e59d7892b3cf";
-
   return (
     <>
-      <div className="max-w-5xl mb-3 mx-auto mt-10 md:mt-5 md:ml-3 h-screen">
-        <div className="mb-5 flex flex-row gap-2 items-center justify-center">
-          <h1 className="text-4xl font-bold md:text-3xl">과제 리스트</h1>
-        </div>
-        <div className="w-full relative overflow-x-auto my-14">
-          <table className="w-full text-sm text-center overflow-x-auto">
+      <div className="mb-3 mt-10 md:mt-5 md:ml-3 h-screen">
+        <h1 className="text-center text-2xl">과제 리스트</h1>
+        <div className="relative my-14 overflow-auto">
+          <table className="text-sm text-center whitespace-nowrap">
             <thead className="text-xs text-pink-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-white">
               <tr>
                 <th scope="col" className="py-3 text-base w-48">
@@ -59,32 +55,6 @@ export default async function Page() {
               })}
             </tbody>
           </table>
-        </div>
-        <div className="flex flex-row gap-3">
-          <span className="border-red-800 bg-red-800 border-2 rounded-md px-1 text-xs">
-            TEST COLOR
-          </span>
-          <span className="border-blue-800 bg-blue-800 border-2 rounded-md px-1 text-xs">
-            TEST COLOR
-          </span>
-          <span className="border-purple-800 bg-purple-800 border-2 rounded-md px-1 text-xs">
-            TEST COLOR
-          </span>
-          <span className="border-green-800 bg-green-800 border-2 rounded-md px-1 text-xs">
-            TEST COLOR
-          </span>
-          <span className="border-orange-800 bg-orange-800 border-2 rounded-md px-1 text-xs">
-            TEST COLOR
-          </span>
-          <span className="border-brown-800 bg-brown-800 border-2 rounded-md px-1 text-xs">
-            TEST COLOR
-          </span>
-          <span className="border-gray-800 bg-gray-800 border-2 rounded-md px-1 text-xs">
-            TEST COLOR
-          </span>
-          <span className="border-pink-800 bg-pink-800 border-2 rounded-md px-1 text-xs">
-            TEST COLOR
-          </span>
         </div>
       </div>
     </>
