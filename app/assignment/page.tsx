@@ -6,10 +6,10 @@ export default async function Page() {
 
   return (
     <>
-      <div className="mb-3 mt-10 md:mt-5 md:ml-3 h-screen">
+      <div className="mb-3 w-full mt-10 md:mt-5 md:ml-3 h-screen">
         <h1 className="text-center text-2xl">과제 리스트</h1>
         <div className="relative my-14 overflow-auto">
-          <table className="text-sm text-center whitespace-nowrap">
+          <table className="text-sm w-full text-center whitespace-nowrap">
             <thead className="text-xs text-pink-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-white">
               <tr>
                 <th scope="col" className="py-3 text-base w-48">
@@ -22,7 +22,7 @@ export default async function Page() {
                   주차
                 </th>
                 <th scope="col" className="py-3 text-base w-16">
-                  멘토
+                  멘토(기입자)
                 </th>
               </tr>
             </thead>
@@ -35,7 +35,7 @@ export default async function Page() {
                         {val.NameOfAssignment}
                       </Link>
                     </th>
-                    <td className="py-4 flex flex-row items-center gap-3 text-xs">
+                    <td className="py-4 flex flex-row justify-start items-center gap-3 text-xs">
                       {val.Tags.map((tag, idx) => {
                         return (
                           <span
