@@ -13,7 +13,7 @@ export const getNotionDatabase = async () => {
       return res.data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        throw axios.isAxiosError(error);
+        return axios.isAxiosError(error);
       }
     }
   } else {
@@ -22,7 +22,7 @@ export const getNotionDatabase = async () => {
       return res.data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        throw axios.isAxiosError(error);
+        return axios.isAxiosError(error);
       }
     }
   }

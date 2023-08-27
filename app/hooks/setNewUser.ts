@@ -14,16 +14,16 @@ export const setNewUser = async ({
   const URI =
     process.env.NODE_ENV === "development"
       ? `http://localhost:3000/api/users`
-      : `https://java-study-forif.vercel.app/api/users`;
+      : `https://forifjava.vercel.app/api/users`;
   console.log(URI);
 
   try {
     const res = await fetch(URI, {
       body: JSON.stringify({
-        username: username,
-        password: password,
-        major: major,
-        assignment: assignment,
+        username,
+        password,
+        major,
+        assignment,
       }),
       headers: { "Content-Type": "application/json" },
       method: "POST",

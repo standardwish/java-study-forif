@@ -37,7 +37,7 @@ export default function Page() {
     });
 
     setContents(content);
-  }, [blockData, pageId]);
+  }, [blockData, pageId, content]);
 
   return (
     <div className="w-4/5 mx-auto mb-3 mt-10 md:mt-5 h-screen">
