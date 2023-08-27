@@ -65,14 +65,18 @@ export default function Page() {
                 }
                 const hasSemicolon = row.includes(";");
                 return (
-                  <p
+                  <div
                     key={idx}
                     style={{ whiteSpace: hasSemicolon ? "pre-line" : "normal" }}
                   >
-                    <SyntaxHighlighter language="java" style={materialDark}>
+                    <SyntaxHighlighter
+                      language="java"
+                      style={materialDark}
+                      key={idx}
+                    >
                       {row}
                     </SyntaxHighlighter>
-                  </p>
+                  </div>
                 );
               })
             : "로딩 중"}

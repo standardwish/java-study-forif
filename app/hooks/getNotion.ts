@@ -9,13 +9,11 @@ import axios from "axios";
 export const getNotionDatabase = async () => {
   if (process.env.NODE_ENV === "production") {
     try {
-      const res = await axios.get(
-        "https://java-study-forif.vercel.app/api/notion"
-      );
+      const res = await axios.get("https://forifjava.vercel.app/api/notion");
       return res.data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        return axios.isAxiosError(error);
+        throw axios.isAxiosError(error);
       }
     }
   } else {
@@ -24,7 +22,7 @@ export const getNotionDatabase = async () => {
       return res.data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        return axios.isAxiosError(error);
+        throw axios.isAxiosError(error);
       }
     }
   }
