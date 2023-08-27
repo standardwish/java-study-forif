@@ -36,6 +36,7 @@
         "no-unneeded-ternary": "off",
         "@typescript-eslint/prefer-ts-expect-error": "off",
         "@typescript-eslint/ban-ts-comment": "off",
-        "@typescript-eslint/array-type": "off"
+        "@typescript-eslint/array-type": "off",
+        "array-callback-return": "off"
     }
 }
