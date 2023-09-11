@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getDatabase } from "../hooks/getNotion";
 
 export default async function Page() {
-  const data = await getDatabase();
+  // const data = await getDatabase();
 
   return (
     <>
@@ -27,7 +27,7 @@ export default async function Page() {
               </tr>
             </thead>
             <tbody>
-              {data.map((val, idx) => {
+              {/* {data.map((val, idx) => {
                 return (
                   <tr key={idx}>
                     <th scope="row" className="py-4" key={idx}>
@@ -51,7 +51,7 @@ export default async function Page() {
                     <td className="py-4">{val.Mentor}</td>
                   </tr>
                 );
-              })}
+              })} */}
             </tbody>
           </table>
         </div>
