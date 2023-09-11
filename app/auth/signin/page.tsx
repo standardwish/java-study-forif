@@ -71,7 +71,7 @@ export default function SignUp() {
             name="username"
             id="username"
             className="bg-gray-50 border border-gray-300 text-gray-900 md:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-            placeholder="표준성"
+            placeholder="김포맆"
             value={username || ""}
             onChange={(e) => {
               setUsername(e.target.value);
@@ -90,7 +90,7 @@ export default function SignUp() {
             name="password"
             id="password"
             className="bg-gray-50 border border-gray-300 text-gray-900 md:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-            placeholder="9868"
+            placeholder="0000"
             value={password || ""}
             onChange={(e) => {
               setPassword(e.target.value);

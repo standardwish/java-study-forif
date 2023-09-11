@@ -6,7 +6,7 @@ import axios from "axios";
  * @returns 유저정보
  */
 export const getAllUsers = async () => {
-  const URI = `https://java-study-forif.vercel.app/api/users`;
+  const URI = `https://forifjava.vercel.app/api/users`;
   try {
     if (typeof URI === "string") {
       const res = await axios.get(URI);

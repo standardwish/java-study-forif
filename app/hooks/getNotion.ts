@@ -34,8 +34,12 @@ export const getNotionDatabase = async () => {
  * @returns 과제명, 태그, 멘토
  */
 export const getDatabase = async () => {
+  console.log("GET DATABASE");
+
   const res: AssignmentData = await getNotionDatabase();
   const data = res.rowStructured;
+  console.log(res);
+
   return data;
 };
 
@@ -45,7 +49,7 @@ export const getDatabase = async () => {
  * @returns 페이지 정보
  */
 export const getNotionPage = async (pageId: string) => {
-  const APP_URI = `https://java-study-forif.vercel.app/api/notion/${pageId}`;
+  const APP_URI = `https://forifjava.vercel.app/api/notion/${pageId}`;
   const LOCAL_URI = `http://localhost:3000/api/notion/${pageId}`;
 
   const URI = APP_URI;

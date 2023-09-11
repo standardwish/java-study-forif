@@ -8,6 +8,7 @@ const token = process.env.NOTION_ACCESS_TOKEN;
 const notion = new Client({
   auth: token,
   notionVersion: "2022-06-28",
+  timeoutMs: 600000,
 });
 
 export async function GET() {

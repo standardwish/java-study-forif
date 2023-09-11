@@ -82,7 +82,7 @@ function HeaderPage() {
                       pathname === "/assignment/submit" ? "text-red-500" : ""
                     }
                   >
-                    과제 제출
+                    솔루션 보기
                   </li>
                 </Link>
               ) : (
@@ -92,7 +92,7 @@ function HeaderPage() {
                     setAssign(false);
                   }}
                 >
-                  <li>과제 제출</li>
+                  <li>솔루션 보기</li>
                 </a>
               )}
 
@@ -101,7 +101,7 @@ function HeaderPage() {
               </li>
               {session ? (
                 <Link
-                  href="/assignment/solution"
+                  href="/assignment/attendance"
                   className="hover:font-bold"
                   onClick={() => {
                     setAssign(false);
@@ -109,14 +109,16 @@ function HeaderPage() {
                 >
                   <li
                     className={
-                      pathname === "/assignment/solution" ? "text-red-500" : ""
+                      pathname === "/assignment/attendance"
+                        ? "text-red-500"
+                        : ""
                     }
                   >
-                    솔루션 보기
+                    출석체크
                   </li>
                 </Link>
               ) : (
-                <a className="cursor-not-allowed opacity-50">솔루션 보기</a>
+                <a className="cursor-not-allowed opacity-50">출석체크</a>
               )}
               <Link
                 href="/assignment/errors"
@@ -254,6 +256,15 @@ function HeaderPage() {
                 </ul>
               )}
             </div>
+            <Link
+              href="/study"
+              className="ml-4"
+              onClick={() => {
+                setIsOpen(false);
+              }}
+            >
+              <li>스터디 운영 방식</li>
+            </Link>
             <Link
               href="/study"
               className="ml-4"
