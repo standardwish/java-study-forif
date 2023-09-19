@@ -30,114 +30,20 @@ function HeaderPage() {
         </div>
       </a>
       <nav className="flex flex-row gap-5 text-sm md:hidden">
-        <div className="inline-block">
-          <button
-            onClick={() => {
-              setAssign(!assign);
-            }}
+        <Link
+          href="/assignment"
+          className="flex flex-row gap-0 items-center justify-center transition ease-in-out delay-150"
+        >
+          <span
+            className={
+              pathname === "/assignment"
+                ? "underline underline-offset-2 decoration-2 decoration-gray-400 transition-all duration-200"
+                : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p"
+            }
           >
-            <span
-              className={
-                pathname === "/assignment"
-                  ? "underline underline-offset-2 decoration-2 decoration-gray-400 transition-all duration-200 flex flex-row gap-0 items-center justify-center transition ease-in-out"
-                  : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p flex flex-row gap-0 items-center justify-center transition "
-              }
-            >
-              과제
-              <div>
-                {assign ? (
-                  <ShrinkArrow classname="fill-white" />
-                ) : (
-                  <ExpandArrow classname="fill-white" />
-                )}
-              </div>
-            </span>
-          </button>
-          {assign && (
-            <ul className="border-2 rounded-md border-gray-100 absolute top-16 flex flex-col gap-3 bg-white text-black w-44 py-2 pl-4 z-50">
-              <Link
-                href="/assignment"
-                className="hover:font-bold"
-                onClick={() => {
-                  setAssign(false);
-                }}
-              >
-                <li
-                  className={pathname === "/assignment" ? "text-red-500" : ""}
-                >
-                  과제 확인
-                </li>
-              </Link>
-
-              {session ? (
-                <Link
-                  href="/assignment/submit"
-                  className="hover:font-bold"
-                  onClick={() => {
-                    setAssign(false);
-                  }}
-                >
-                  <li
-                    className={
-                      pathname === "/assignment/submit" ? "text-red-500" : ""
-                    }
-                  >
-                    솔루션 보기
-                  </li>
-                </Link>
-              ) : (
-                <a
-                  className="cursor-not-allowed opacity-50"
-                  onClick={() => {
-                    setAssign(false);
-                  }}
-                >
-                  <li>솔루션 보기</li>
-                </a>
-              )}
-
-              <li>
-                <hr />
-              </li>
-              {session ? (
-                <Link
-                  href="/assignment/attendance"
-                  className="hover:font-bold"
-                  onClick={() => {
-                    setAssign(false);
-                  }}
-                >
-                  <li
-                    className={
-                      pathname === "/assignment/attendance"
-                        ? "text-red-500"
-                        : ""
-                    }
-                  >
-                    출석체크
-                  </li>
-                </Link>
-              ) : (
-                <a className="cursor-not-allowed opacity-50">출석체크</a>
-              )}
-              <Link
-                href="/assignment/errors"
-                className="hover:font-bold"
-                onClick={() => {
-                  setAssign(false);
-                }}
-              >
-                <li
-                  className={
-                    pathname === "/assignment/errors" ? "text-red-500" : ""
-                  }
-                >
-                  자주 발생하는 에러
-                </li>
-              </Link>
-            </ul>
-          )}
-        </div>
+            과제
+          </span>
+        </Link>
 
         <Link
           href="/study"

@@ -1,61 +1,44 @@
-import Link from "next/link";
-import { getDatabase } from "../hooks/getNotion";
-
-export default async function Page() {
-  // const data = await getDatabase();
-
+export default function Page() {
   return (
-    <>
-      <div className="mb-3 w-full mt-10 md:mt-5 md:ml-3 h-screen">
-        <h1 className="text-center text-2xl">과제 리스트</h1>
-        <div className="relative my-14 overflow-auto">
-          <table className="text-sm w-full text-center whitespace-nowrap">
-            <thead className="text-xs text-pink-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-white">
-              <tr>
-                <th scope="col" className="py-3 text-base w-48">
-                  과제명
-                </th>
-                <th scope="col" className="py-3 text-base w-16">
-                  학습내용
-                </th>
-                <th scope="col" className="py-3 text-base w-16">
-                  주차
-                </th>
-                <th scope="col" className="py-3 text-base w-16">
-                  멘토(기입자)
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* {data.map((val, idx) => {
-                return (
-                  <tr key={idx}>
-                    <th scope="row" className="py-4" key={idx}>
-                      <Link href={`/assignment/${val.pageId}`}>
-                        {val.NameOfAssignment}
-                      </Link>
-                    </th>
-                    <td className="py-4 flex flex-row justify-start items-center gap-3 text-xs">
-                      {val.Tags.map((tag, idx) => {
-                        return (
-                          <span
-                            className={`bg-${tag.color}-800 px-1 border-2 border-${tag.color}-800 rounded-sm`}
-                            key={idx}
-                          >
-                            {tag.name}{" "}
-                          </span>
-                        );
-                      })}
-                    </td>
-                    <td className="py-4">{val.Week}</td>
-                    <td className="py-4">{val.Mentor}</td>
-                  </tr>
-                );
-              })} */}
-            </tbody>
-          </table>
+    <div className="flex flex-col justify-center items-center">
+      <h1 className="text-4xl pt-10">실습 모음</h1>
+      <div className="flex flex-col mt-4">
+        <div className="flex flex-col gap-4 items-center">
+          <h2 className="text-lg">1주차</h2>
+          <div className="flex flex-row gap-10">
+            <a
+              href="https://galmaehs.notion.site/JVM-1799cf8fea734f368076661fd6d01afe"
+              target="_blank"
+            >
+              JVM - 기초
+            </a>
+            <a
+              href="https://galmaehs.notion.site/ac5837d0f36a41889232e59d7892b3cf?pvs=4"
+              target="_blank"
+            >
+              연산자1 - 쉬움
+            </a>
+            <a
+              href="https://galmaehs.notion.site/261ab4952e7f4807ada66cbdcfe4eecc?pvs=4"
+              target="_blank"
+            >
+              연산자2 - 쉬움
+            </a>
+            <a
+              href="https://galmaehs.notion.site/ee5e8422526a404ca1954bbd09db8f6c?pvs=4"
+              target="_blank"
+            >
+              조건문과 반복문1 - 쉬움
+            </a>
+            <a
+              href="https://galmaehs.notion.site/b50b2d773adb46c7872e8b2550dbf35b?pvs=4"
+              target="_blank"
+            >
+              조건문과 반복문2 - 쉬움
+            </a>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
