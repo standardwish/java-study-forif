@@ -41,7 +41,7 @@ function HeaderPage() {
                 : "border-b-0 bg-link_i bg-link_p bg-link_s bg-no-repeat transition-backgroundSize duration-500 ease-in-out hover:bg-link_s_hover hover:bg-link_p"
             }
           >
-            과제
+            실습
           </span>
         </Link>
 
@@ -107,60 +107,12 @@ function HeaderPage() {
         <nav className="top-20 bg-black w-full h-screen fixed z-50">
           <ul className="flex flex-col gap-9 text-base">
             <div className="ml-4 mt-5">
-              <button
+              <Link
+                href="/assignment"
                 className="flex flex-row gap-1 items-center"
-                onClick={() => {
-                  showDetail(!detail);
-                }}
               >
                 과제
-                {detail ? (
-                  <ShrinkArrow classname="fill-white" />
-                ) : (
-                  <ExpandArrow classname="fill-white" />
-                )}
-              </button>
-              {detail && (
-                <ul className="flex flex-col gap-2 mt-4 animate-dropdown_down relative">
-                  <Link href="/assignment" onClick={onShow}>
-                    <li className="text-base">과제 확인</li>
-                  </Link>
-                  <Link
-                    className={
-                      status === "authenticated"
-                        ? ""
-                        : "opacity-50 cursor-not-allowed"
-                    }
-                    href="/assignment/submit"
-                    onClick={() => {
-                      setIsOpen(false);
-                    }}
-                  >
-                    <li>과제 제출</li>
-                  </Link>
-                  <Link
-                    className={
-                      status === "authenticated"
-                        ? ""
-                        : "opacity-50 cursor-not-allowed"
-                    }
-                    href="/assignment/solution"
-                    onClick={() => {
-                      setIsOpen(false);
-                    }}
-                  >
-                    <li>솔루션 보기</li>
-                  </Link>
-                  <Link
-                    href="/assignment/errors"
-                    onClick={() => {
-                      setIsOpen(false);
-                    }}
-                  >
-                    <li>자주 발생하는 에러</li>
-                  </Link>
-                </ul>
-              )}
+              </Link>
             </div>
             <Link
               href="/study"
