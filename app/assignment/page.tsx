@@ -64,6 +64,27 @@ export default function Page() {
               String과 다차원 배열3 - 중간
             </a>
           </div>
+          <h2 className="text-lg">3주차</h2>
+          <div className="flex flex-row gap-10">
+            <a
+              href="https://galmaehs.notion.site/e08f2112e36e41c692fd777ffa9e0481?pvs=4"
+              target="_blank"
+            >
+              객체란 무엇인가1
+            </a>
+            <a
+              href="https://galmaehs.notion.site/0e1480f6643342709a1023663ba8d5f7?pvs=4"
+              target="_blank"
+            >
+              객체란 무엇인가2
+            </a>
+            <a
+              href="https://galmaehs.notion.site/8b9e8f44e6f147508b330a5faa2b6b2a?pvs=4"
+              target="_blank"
+            >
+              객체란 무엇인가3
+            </a>
+          </div>
         </div>
       </div>
     </div>
