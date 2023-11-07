@@ -85,6 +85,27 @@ export default function Page() {
               객체란 무엇인가3
             </a>
           </div>
+          <h2 className="text-lg">4주차</h2>
+          <div className="flex flex-row gap-10">
+            <a
+              href="https://highapply.notion.site/492f7cfeb77e419ea07011e3d0aee52a?pvs=4"
+              target="_blank"
+            >
+              객체란 무엇인가4
+            </a>
+            <a
+              href="https://highapply.notion.site/492f7cfeb77e419ea07011e3d0aee52a?pvs=4"
+              target="_blank"
+            >
+              객체란 무엇인가5
+            </a>
+            <a
+              href="https://highapply.notion.site/03abb7526c0549fc9fe4a677d55f8a72?pvs=4"
+              target="_blank"
+            >
+              객체란 무엇인가6
+            </a>
+          </div>
         </div>
       </div>
     </div>
