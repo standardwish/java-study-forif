@@ -94,7 +94,7 @@ export default function Page() {
               객체란 무엇인가4
             </a>
             <a
-              href="https://highapply.notion.site/492f7cfeb77e419ea07011e3d0aee52a?pvs=4"
+              href="https://highapply.notion.site/9158fc87860440a4b6fe37bfcf23ebdb?pvs=4"
               target="_blank"
             >
               객체란 무엇인가5
